@@ -20,6 +20,10 @@ func _ready():
 
 	camera.position = Vector3(0, 0, zoom) # This places the camera behind the character.
 
+func _input(event):
+	if Input.is_action_just_pressed("esc"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE)
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		# Horizontal rotation (yaw).

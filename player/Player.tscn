@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://w3ywca3d08hw"]
+
+[ext_resource type="Script" uid="uid://blm0axussbowo" path="res://player/player_controller.gd" id="1_3c3w1"]
+[ext_resource type="Script" uid="uid://b8hwr560i6myv" path="res://player/camera_controller.gd" id="2_wnvi2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehurd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o0y8a"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1288974800]
+script = ExtResource("1_3c3w1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=148091583]
+shape = SubResource("BoxShape3D_ehurd")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1030887568]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual" unique_id=1625924876]
+mesh = SubResource("BoxMesh_o0y8a")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=101171570]
+
+[node name="Center" type="Node3D" parent="CameraRig" unique_id=1430554535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="YawPivot" type="Node3D" parent="CameraRig/Center" unique_id=1372925661]
+script = ExtResource("2_wnvi2")
+
+[node name="PitchPivot" type="Node3D" parent="CameraRig/Center/YawPivot" unique_id=416227757]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/Center/YawPivot/PitchPivot" unique_id=2114739121]
+
+[node name="Marker3D" type="Marker3D" parent="CameraRig/Center" unique_id=987359629]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CameraRig" unique_id=1967782349]
+
+[node name="Control" type="Control" parent="CameraRig/CanvasLayer" unique_id=237587511]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="CameraRig/CanvasLayer/Control" unique_id=552411729]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 0, 1, 1)
