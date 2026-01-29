@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://w3ywca3d08hw" path="res://player/Player.tscn" id="1_c6gwx"]
 [ext_resource type="PackedScene" uid="uid://ea6ylhjfwjcx" path="res://mask/Mask.tscn" id="2_2dftf"]
 [ext_resource type="PackedScene" uid="uid://b7av5y0wq0swv" path="res://enemies/Enemy.tscn" id="3_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://b3h4bgtxoldaj" path="res://enemies/EnemySpawner.tscn" id="4_js7pq"]
 
 [sub_resource type="Environment" id="Environment_bcbcq"]
 glow_enabled = true
@@ -88,3 +89,6 @@ type = 1
 
 [node name="Enemy" parent="." unique_id=501243503 instance=ExtResource("3_bcbcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258346, -7.229157)
+
+[node name="EnemySpawner" parent="." unique_id=74397329 instance=ExtResource("4_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2640786, -13.419016)

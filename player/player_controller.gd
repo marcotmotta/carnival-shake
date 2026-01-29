@@ -58,10 +58,10 @@ func _physics_process(delta):
 
 func remove_mask(type):
 	match type:
-		game_state.types_of_masks.hummingbird:
+		game_state.types_of_masks.beijaflor:
 			visual.get_node("MaskHandler/Center/Mask1").visible = false
 			print("Remove Mask1")
-		game_state.types_of_masks.turtle:
+		game_state.types_of_masks.tartaruga:
 			visual.get_node("MaskHandler/Center/Mask2").visible = false
 			print("Remove Mask2")
 
@@ -71,10 +71,10 @@ func add_mask(type):
 	remove_mask(curr_mask_type)
 
 	match type:
-		game_state.types_of_masks.hummingbird:
+		game_state.types_of_masks.beijaflor:
 			visual.get_node("MaskHandler/Center/Mask1").visible = true
 			print("Add Mask1")
-		game_state.types_of_masks.turtle:
+		game_state.types_of_masks.tartaruga:
 			visual.get_node("MaskHandler/Center/Mask2").visible = true
 			print("Add Mask2")
 

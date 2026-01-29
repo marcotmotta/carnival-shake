@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var mouse_sensitivity := 0.003
-@export var min_pitch := -0.8 # Look down.
+@export var min_pitch := -1.3 # Look down.
 @export var max_pitch := +0.4 # Look up.
 
 @export var min_zoom := 3.0

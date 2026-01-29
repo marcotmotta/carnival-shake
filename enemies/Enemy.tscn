@@ -6,15 +6,14 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogxq4"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_43lb5"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkw1x"]
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 10.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_43lb5"]
-material = SubResource("StandardMaterial3D_xkw1x")
-size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xkw1x"]
 radius = 1.2
@@ -38,6 +37,7 @@ shape = SubResource("CapsuleShape3D_ogxq4")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=379892970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34680784, -0.36656082)
 mesh = SubResource("BoxMesh_43lb5")
+surface_material_override/0 = SubResource("StandardMaterial3D_xkw1x")
 
 [node name="HitArea" type="Area3D" parent="." unique_id=1885571670]
 

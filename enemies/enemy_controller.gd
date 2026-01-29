@@ -9,11 +9,18 @@ var knockback_velocity := Vector3.ZERO
 
 var player: Node3D
 
+var type = game_state.types_of_masks.onca
+
 func _ready():
+	# Get player node
 	player = get_tree().get_first_node_in_group("player")
 
 	# Wait for navigation to be ready
 	await get_tree().physics_frame
+
+	$MeshInstance3D2.set_surface_override_material(0, $MeshInstance3D2.get_surface_override_material(0).duplicate())
+	$MeshInstance3D2.get_surface_override_material(0).albedo_color = game_state.get_mask_color(type)
+	$MeshInstance3D2.get_surface_override_material(0).emission = game_state.get_mask_color(type)
 
 func _physics_process(delta):
 	if player:
