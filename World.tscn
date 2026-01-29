@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi6vekfr7fjwx"]
 
 [ext_resource type="PackedScene" uid="uid://w3ywca3d08hw" path="res://player/Player.tscn" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://ea6ylhjfwjcx" path="res://mask/Mask.tscn" id="2_2dftf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5hrn"]
 
@@ -29,3 +30,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o0y8a")
 
 [node name="Player" parent="." unique_id=1288974800 instance=ExtResource("1_c6gwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Mask1" parent="." unique_id=853299532 instance=ExtResource("2_2dftf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -4.5)
+
+[node name="Mask2" parent="." unique_id=619755121 instance=ExtResource("2_2dftf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -4.5)
+type = 1

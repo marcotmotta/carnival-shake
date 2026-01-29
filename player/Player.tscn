@@ -7,7 +7,23 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_o0y8a"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1288974800]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c3w1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnvi2"]
+material = SubResource("StandardMaterial3D_3c3w1")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnvi2"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_83hs8"]
+material = SubResource("StandardMaterial3D_wnvi2")
+size = Vector2(1, 1)
+orientation = 2
+
+[node name="Player" type="CharacterBody3D" unique_id=1288974800 groups=["player"]]
 script = ExtResource("1_3c3w1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=148091583]
@@ -17,6 +33,25 @@ shape = SubResource("BoxShape3D_ehurd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visual" unique_id=1625924876]
 mesh = SubResource("BoxMesh_o0y8a")
+
+[node name="MaskHandler" type="Node3D" parent="Visual" unique_id=599463333]
+
+[node name="Center" type="Node3D" parent="Visual/MaskHandler" unique_id=565992065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.5)
+
+[node name="Mask1" type="Node3D" parent="Visual/MaskHandler/Center" unique_id=1874216611]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual/MaskHandler/Center/Mask1" unique_id=1766821095]
+transform = Transform3D(0.555, 0, 0, 0, 0.5360888, -0.14364457, 0, 0.14364457, 0.5360888, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wnvi2")
+
+[node name="Mask2" type="Node3D" parent="Visual/MaskHandler/Center" unique_id=101488718]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual/MaskHandler/Center/Mask2" unique_id=745907903]
+transform = Transform3D(0.555, 0, 0, 0, 0.5360888, -0.14364457, 0, 0.14364457, 0.5360888, 0, 0, 0)
+mesh = SubResource("PlaneMesh_83hs8")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=101171570]
 
@@ -29,8 +64,6 @@ script = ExtResource("2_wnvi2")
 [node name="PitchPivot" type="Node3D" parent="CameraRig/Center/YawPivot" unique_id=416227757]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/Center/YawPivot/PitchPivot" unique_id=2114739121]
-
-[node name="Marker3D" type="Marker3D" parent="CameraRig/Center" unique_id=987359629]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CameraRig" unique_id=1967782349]
 

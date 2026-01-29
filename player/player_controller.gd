@@ -8,6 +8,8 @@ extends CharacterBody3D
 @onready var cam_yaw_pivot := $CameraRig/Center/YawPivot
 @onready var visual := $Visual
 
+var curr_mask_type = null
+
 func _process(delta):
 	# Align to camera direction.
 	visual.rotation.y = lerp_angle(visual.rotation.y, cam_yaw_pivot.global_rotation.y, turn_speed * delta)
@@ -45,3 +47,27 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	move_and_slide()
+
+func remove_mask(type):
+	match type:
+		game_state.types_of_masks.hummingbird:
+			visual.get_node("MaskHandler/Center/Mask1").visible = false
+			print("Remove Mask1")
+		game_state.types_of_masks.turtle:
+			visual.get_node("MaskHandler/Center/Mask2").visible = false
+			print("Remove Mask2")
+
+	curr_mask_type = null
+
+func add_mask(type):
+	remove_mask(curr_mask_type)
+
+	match type:
+		game_state.types_of_masks.hummingbird:
+			visual.get_node("MaskHandler/Center/Mask1").visible = true
+			print("Add Mask1")
+		game_state.types_of_masks.turtle:
+			visual.get_node("MaskHandler/Center/Mask2").visible = true
+			print("Add Mask2")
+
+	curr_mask_type = type
