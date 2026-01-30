@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrfmos484u2d"
-path.s3tc="res://.godot/imported/BeijaFlor_Beijaflor1.png-f12c0fe814c23e6f847664a35d3cf177.s3tc.ctex"
+uid="uid://btttd8imialx"
+path.s3tc="res://.godot/imported/Garça_5reais.png-41cb169c2ad2d50d16be7986f0a87842.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "913980786e3058e13d0219352832bed3"
+"md5": "47d24eb1b93ae3e4bbf58bdb0f3e2c5a"
 }
 
 [deps]
 
-source_file="res://mask/BeijaFlor_Beijaflor1.png"
-dest_files=["res://.godot/imported/BeijaFlor_Beijaflor1.png-f12c0fe814c23e6f847664a35d3cf177.s3tc.ctex"]
+source_file="res://mask/garca/Garça_5reais.png"
+dest_files=["res://.godot/imported/Garça_5reais.png-41cb169c2ad2d50d16be7986f0a87842.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://mask/BeijaFlor_Beijaflor1.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
