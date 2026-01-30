@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 var knockback_velocity := Vector3.ZERO
+@export var knockback_force := 40.0
 @export var knockback_friction := 5.0
 @export var fall_gravity := 30.0
 
@@ -51,7 +52,7 @@ func _physics_process(delta):
 	if direction.length() > 0.1:
 		look_at(Vector3((global_position + direction).x, global_position.y, (global_position + direction).z))
 
-func take_knockback(from_position: Vector3, force: float):
+func take_knockback(from_position: Vector3, force: float = knockback_force):
 	var direction = (global_position - from_position).normalized()
 	direction.y = 0
 	direction = direction.normalized()
@@ -69,4 +70,4 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group('player'):
 		body.take_damage(10)
 
-		take_knockback(player.global_position, 40.0)
+		take_knockback(player.global_position, knockback_force)

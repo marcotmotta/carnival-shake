@@ -7,8 +7,7 @@ enum types_of_masks {
 	arara,
 	macaco,
 	onca,
-	peixe,
-	lobo
+	peixe
 }
 
 func get_mask_color(type_of_mask):
@@ -27,5 +26,3 @@ func get_mask_color(type_of_mask):
 			return '#FF640A'
 		types_of_masks.peixe:
 			return '#01D5FF'
-		types_of_masks.lobo:
-			return '#6b2000'

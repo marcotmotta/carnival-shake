@@ -15,7 +15,13 @@ extends CharacterBody3D
 var curr_mask_type = null
 
 # Projectiles
-@onready var projectile_scene = preload("res://projectiles/Projectile.tscn")
+@onready var projectile_beijaflor_scene = preload("res://projectiles/ProjectileBeijaFlor.tscn")
+@onready var projectile_tartaruga_scene = preload("res://projectiles/ProjectileTartaruga.tscn")
+@onready var projectile_garca_scene = preload("res://projectiles/ProjectileGarca.tscn")
+@onready var projectile_arara_scene = preload("res://projectiles/ProjectileArara.tscn")
+@onready var projectile_macaco_scene = preload("res://projectiles/ProjectileMacaco.tscn")
+@onready var projectile_onca_scene = preload("res://projectiles/ProjectileOnca.tscn")
+@onready var projectile_peixe_scene = preload("res://projectiles/ProjectilePeixe.tscn")
 
 func _process(delta):
 	# Align to camera direction.
@@ -61,39 +67,59 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func remove_mask(type):
-	match type:
-		game_state.types_of_masks.beijaflor:
-			visual.get_node("MaskHandler/Center/Mask1").visible = false
-			print("Remove Mask1")
-		game_state.types_of_masks.tartaruga:
-			visual.get_node("MaskHandler/Center/Mask2").visible = false
-			print("Remove Mask2")
+func remove_current_mask():
+	for mask in $Visual/MaskHandler/Masks.get_children():
+		mask.visible = false
 
 	curr_mask_type = null
 
 func add_mask(type):
-	remove_mask(curr_mask_type)
+	remove_current_mask()
 
 	match type:
 		game_state.types_of_masks.beijaflor:
-			visual.get_node("MaskHandler/Center/Mask1").visible = true
-			print("Add Mask1")
+			visual.get_node("MaskHandler/Masks/Mask1").visible = true
 		game_state.types_of_masks.tartaruga:
-			visual.get_node("MaskHandler/Center/Mask2").visible = true
-			print("Add Mask2")
+			visual.get_node("MaskHandler/Masks/Mask2").visible = true
+		game_state.types_of_masks.garca:
+			visual.get_node("MaskHandler/Masks/Mask3").visible = true
+		game_state.types_of_masks.arara:
+			visual.get_node("MaskHandler/Masks/Mask4").visible = true
+		game_state.types_of_masks.macaco:
+			visual.get_node("MaskHandler/Masks/Mask5").visible = true
+		game_state.types_of_masks.onca:
+			visual.get_node("MaskHandler/Masks/Mask6").visible = true
+		game_state.types_of_masks.peixe:
+			visual.get_node("MaskHandler/Masks/Mask7").visible = true
 
 	curr_mask_type = type
 
 func _input(event):
-	if event.is_action_pressed("m1"):
+	if event.is_action_pressed("m1") and curr_mask_type != null: # must have mask to shoot (?)
 		throw_projectile()
 
 func throw_projectile():
-	var projectile_instance = projectile_scene.instantiate()
+	var projectile_instance
+
+	match curr_mask_type:
+		game_state.types_of_masks.beijaflor:
+			projectile_instance = projectile_beijaflor_scene.instantiate()
+		game_state.types_of_masks.tartaruga:
+			projectile_instance = projectile_tartaruga_scene.instantiate()
+		game_state.types_of_masks.garca:
+			projectile_instance = projectile_garca_scene.instantiate()
+		game_state.types_of_masks.arara:
+			projectile_instance = projectile_arara_scene.instantiate()
+		game_state.types_of_masks.macaco:
+			projectile_instance = projectile_macaco_scene.instantiate()
+		game_state.types_of_masks.onca:
+			projectile_instance = projectile_onca_scene.instantiate()
+		game_state.types_of_masks.peixe:
+			projectile_instance = projectile_peixe_scene.instantiate()
 
 	projectile_instance.global_position = global_position
 	projectile_instance.direction = -global_transform.basis.z
+	projectile_instance.type = curr_mask_type
 
 	get_parent().add_child(projectile_instance)
 

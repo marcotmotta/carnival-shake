@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://beodms4ndw3wy"]
+[gd_scene format=3 uid="uid://dxwwfngsyfsq2"]
 
-[ext_resource type="Script" uid="uid://dth01pmyi62dt" path="res://projectiles/projectile.gd" id="1_eeyek"]
+[ext_resource type="Script" uid="uid://dth01pmyi62dt" path="res://projectiles/projectile.gd" id="1_dqxyc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_eeyek"]
 radius = 0.25
 height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eeyek"]
-albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
-emission = Color(1, 0, 0, 1)
+emission = Color(0.95000005, 1, 0, 1)
 emission_energy_multiplier = 5.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_eeyek"]
 radius = 0.25
 
 [node name="Projectile" type="Area3D" unique_id=1443286827]
-script = ExtResource("1_eeyek")
+script = ExtResource("1_dqxyc")
+type = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=329836329]
 mesh = SubResource("SphereMesh_eeyek")
