@@ -25,7 +25,7 @@ var curr_mask_type = null
 @onready var projectile_peixe_scene = preload("res://projectiles/ProjectilePeixe.tscn")
 
 var can_shoot = true
-var shoot_delay = 0.3
+var shoot_delay = 0.4
 
 func _process(delta):
 	# Align to camera direction.
@@ -80,6 +80,9 @@ func remove_current_mask():
 	for mask in $Visual/MaskHandler/Masks.get_children():
 		mask.visible = false
 
+	for bar in $CanvasLayer/Bars.get_children():
+		bar.visible = false
+
 	curr_mask_type = null
 
 func add_mask(type):
@@ -100,6 +103,8 @@ func add_mask(type):
 			visual.get_node("MaskHandler/Masks/Mask6").visible = true
 		game_state.types_of_masks.peixe:
 			visual.get_node("MaskHandler/Masks/Mask7").visible = true
+
+	$CanvasLayer/Bars.get_node(str(type)).visible = true
 
 	curr_mask_type = type
 
@@ -147,6 +152,9 @@ func throw_projectile():
 
 func take_damage(amount):
 	health = max(0, health - amount)
+
+func heal(amount):
+	health = min(max_health, health + amount)
 
 func _on_shoot_delay_timeout() -> void:
 	can_shoot = true

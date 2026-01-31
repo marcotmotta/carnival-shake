@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://nmm1kjlgh2e4"]
+
+[ext_resource type="Script" uid="uid://r6cn6w1vhedc" path="res://heal/heal.gd" id="1_7s5lt"]
+[ext_resource type="PackedScene" uid="uid://cpycel52a4dp5" path="res://heal/xequemate.glb" id="1_arlra"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7s5lt"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_arlra"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("xequemate2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7s5lt"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("xequemate2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4lxk"]
+_data = {
+&"RESET": SubResource("Animation_arlra"),
+&"new_animation": SubResource("Animation_7s5lt")
+}
+
+[node name="Heal" type="Area3D" unique_id=1603636109]
+script = ExtResource("1_7s5lt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1829765317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95008814, 0)
+shape = SubResource("SphereShape3D_7s5lt")
+
+[node name="xequemate2" parent="." unique_id=1771627254 instance=ExtResource("1_arlra")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.8920578, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1907058321]
+libraries/ = SubResource("AnimationLibrary_k4lxk")
+autoplay = &"new_animation"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

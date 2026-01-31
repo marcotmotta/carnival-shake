@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dpbfjk1db356e" path="res://mask/macaco/mico.tscn" id="7_06mnu"]
 [ext_resource type="PackedScene" uid="uid://dkunfxgg2nl1s" path="res://mask/onca/onça.tscn" id="8_mhpjh"]
 [ext_resource type="PackedScene" uid="uid://c752cl5d1vpyl" path="res://mask/peixe/peixe.tscn" id="9_ndjxb"]
+[ext_resource type="Texture2D" uid="uid://cwso0s0er7moq" path="res://player/bars/ui1_0007_base.png" id="11_5qrx2"]
+[ext_resource type="Texture2D" uid="uid://bg3wa7st2rdmx" path="res://player/bars/ui1_0003_beijaflo.png" id="12_uewl2"]
+[ext_resource type="Texture2D" uid="uid://dkvt80p6jkupb" path="res://player/bars/ui1_0000_tortuga.png" id="13_ofhxi"]
+[ext_resource type="Texture2D" uid="uid://cre8j0wrlw1lk" path="res://player/bars/ui1_0002_garca.png" id="14_yu5hk"]
+[ext_resource type="Texture2D" uid="uid://dxxi8lqimgbun" path="res://player/bars/ui1_0001_arara.png" id="15_q6miu"]
+[ext_resource type="Texture2D" uid="uid://do4n2jcakvsib" path="res://player/bars/ui1_0004_macaco.png" id="16_mlfor"]
+[ext_resource type="Texture2D" uid="uid://clv6w8cd6x4ri" path="res://player/bars/ui1_0005_onca.png" id="17_2m0d2"]
+[ext_resource type="Texture2D" uid="uid://bl3cq6uw7w46j" path="res://player/bars/ui1_0006_peixe.png" id="18_8nth8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehurd"]
 size = Vector3(0.5703125, 1.2451172, 0.47460938)
@@ -89,10 +97,10 @@ script = ExtResource("2_wnvi2")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1967782349]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=755836806]
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 230.0
-offset_bottom = 60.0
+offset_left = 379.0
+offset_top = 688.0
+offset_right = 834.0
+offset_bottom = 709.0
 theme = SubResource("Theme_3c3w1")
 theme_override_styles/background = SubResource("StyleBoxFlat_wnvi2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_83hs8")
@@ -125,6 +133,59 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(1, 0, 1, 1)
+
+[node name="Bars" type="Control" parent="CanvasLayer" unique_id=1522226512]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Base" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1044610892]
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("11_5qrx2")
+
+[node name="0" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=367329213]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("12_uewl2")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1909389580]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("13_ofhxi")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1329930908]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("14_yu5hk")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1011744232]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("15_q6miu")
+
+[node name="4" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1268093460]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("16_mlfor")
+
+[node name="5" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=155206125]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("17_2m0d2")
+
+[node name="6" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=848704388]
+visible = false
+position = Vector2(410, 620)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("18_8nth8")
 
 [node name="ShootDelay" type="Timer" parent="." unique_id=2115213560]
 wait_time = 0.3

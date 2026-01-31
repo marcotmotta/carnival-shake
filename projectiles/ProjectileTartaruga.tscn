@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbxlmahg0yvwy"]
 
 [ext_resource type="Script" uid="uid://dth01pmyi62dt" path="res://projectiles/projectile.gd" id="1_2hpbg"]
+[ext_resource type="PackedScene" uid="uid://bx3hjvbmb3i5e" path="res://projectiles/tiro_tartaruga.tscn" id="2_c04tb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_eeyek"]
 radius = 0.25
@@ -19,6 +20,7 @@ script = ExtResource("1_2hpbg")
 type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=329836329]
+visible = false
 mesh = SubResource("SphereMesh_eeyek")
 surface_material_override/0 = SubResource("StandardMaterial3D_eeyek")
 
@@ -28,6 +30,11 @@ shape = SubResource("SphereShape3D_eeyek")
 [node name="Timer" type="Timer" parent="." unique_id=608246694]
 wait_time = 5.0
 autostart = true
+
+[node name="Model" type="Node3D" parent="." unique_id=1147019537]
+
+[node name="TiroTartaruga" parent="Model" unique_id=2125330046 instance=ExtResource("2_c04tb")]
+transform = Transform3D(1.175, 0, 0, 0, 1.175, 0, 0, 0, 1.175, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

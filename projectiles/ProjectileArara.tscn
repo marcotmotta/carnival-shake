@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxwwfngsyfsq2"]
 
 [ext_resource type="Script" uid="uid://dth01pmyi62dt" path="res://projectiles/projectile.gd" id="1_dqxyc"]
+[ext_resource type="PackedScene" uid="uid://c4ql8c3ld6h06" path="res://projectiles/tiro_arara.tscn" id="2_8ag4q"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_eeyek"]
 radius = 0.25
@@ -12,13 +13,14 @@ emission = Color(0.95000005, 1, 0, 1)
 emission_energy_multiplier = 5.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_eeyek"]
-radius = 0.25
+radius = 0.4
 
 [node name="Projectile" type="Area3D" unique_id=1443286827]
 script = ExtResource("1_dqxyc")
 type = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=329836329]
+visible = false
 mesh = SubResource("SphereMesh_eeyek")
 surface_material_override/0 = SubResource("StandardMaterial3D_eeyek")
 
@@ -28,6 +30,11 @@ shape = SubResource("SphereShape3D_eeyek")
 [node name="Timer" type="Timer" parent="." unique_id=608246694]
 wait_time = 5.0
 autostart = true
+
+[node name="Model" type="Node3D" parent="." unique_id=1272687473]
+
+[node name="TiroArara" parent="Model" unique_id=250738085 instance=ExtResource("2_8ag4q")]
+transform = Transform3D(1.85, 0, 0, 0, 1.85, 0, 0, 0, 1.85, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://crwgigg3642ls"]
+
+[ext_resource type="Script" uid="uid://d1p3vxw4k0680" path="res://projectiles/hit_particle.gd" id="1_feu2r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feu2r"]
+emission_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_apqfd"]
+material = SubResource("StandardMaterial3D_feu2r")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.01
+
+[sub_resource type="Curve" id="Curve_tkqvb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.32015306), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="HitParticle" type="CPUParticles3D" unique_id=1060203747]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+mesh = SubResource("CylinderMesh_apqfd")
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 40.0
+gravity = Vector3(0, -5, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+linear_accel_min = -6.0
+angle_min = 105.4
+angle_max = 105.4
+scale_amount_curve = SubResource("Curve_tkqvb")
+script = ExtResource("1_feu2r")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
