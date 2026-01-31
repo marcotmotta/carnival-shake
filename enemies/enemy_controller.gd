@@ -6,7 +6,6 @@ extends CharacterBody3D
 var knockback_velocity := Vector3.ZERO
 @export var knockback_force := 40.0
 @export var knockback_friction := 5.0
-@export var fall_gravity := 30.0
 
 var player: Node3D
 
@@ -22,9 +21,8 @@ func _ready():
 	# Wait for navigation to be ready.
 	await get_tree().physics_frame
 
-	$MeshInstance3D2.set_surface_override_material(0, $MeshInstance3D2.get_surface_override_material(0).duplicate())
-	$MeshInstance3D2.get_surface_override_material(0).albedo_color = game_state.get_mask_color(type)
-	$MeshInstance3D2.get_surface_override_material(0).emission = game_state.get_mask_color(type)
+	# Select model based on type
+	$Model.get_node(str(type)).visible = true # am i genius?
 
 func _physics_process(delta):
 	if player:
@@ -36,12 +34,7 @@ func _physics_process(delta):
 	var next_point = nav_agent.get_next_path_position()
 	var direction = (next_point - global_position).normalized()
 
-	# Apply gravity.
-	if not is_on_floor():
-		velocity.y -= fall_gravity * delta
-
-	velocity.x = direction.x * speed + knockback_velocity.x
-	velocity.z = direction.z * speed + knockback_velocity.z
+	velocity = direction * speed + knockback_velocity
 
 	move_and_slide()
 
@@ -60,7 +53,6 @@ func take_knockback(from_position: Vector3, force: float = knockback_force):
 	direction = direction.normalized()
 	
 	knockback_velocity = direction * force
-	velocity.y = force * 0.2
 
 func take_damage(amount):
 	health = max(0, health - amount)

@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://b7av5y0wq0swv"]
 
 [ext_resource type="Script" uid="uid://ccl5hulwsufgt" path="res://enemies/enemy_controller.gd" id="1_xkw1x"]
+[ext_resource type="PackedScene" uid="uid://ca8cho1jvr58v" path="res://enemies/beijaflor/1_beijaflo_correndo.tscn" id="2_8tr1a"]
+[ext_resource type="PackedScene" uid="uid://xv22bv8k5eyk" path="res://enemies/tartaruga/2_tartaruga_correndo.tscn" id="3_jfak0"]
+[ext_resource type="PackedScene" uid="uid://bg3ly6avxbn3d" path="res://enemies/garca/5_garca_correndo.tscn" id="4_3o3gx"]
+[ext_resource type="PackedScene" uid="uid://bjjglffbovr48" path="res://enemies/arara/10_arara_correndo.tscn" id="5_3o3gx"]
+[ext_resource type="PackedScene" uid="uid://1dlyt36pa3g3" path="res://enemies/macaco/20_macaco_correndo.tscn" id="6_jennj"]
+[ext_resource type="PackedScene" uid="uid://c1rsn3yjs2gao" path="res://enemies/onca/50_onca_correndo.tscn" id="7_o83p0"]
+[ext_resource type="PackedScene" uid="uid://b0bybkm38ufnh" path="res://enemies/peixe/100_peixe_correndo.tscn" id="8_ynigi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ogxq4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogxq4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_43lb5"]
-size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkw1x"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 10.0
+radius = 1.05
+height = 2.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xkw1x"]
-radius = 1.2
+radius = 1.1
 
 [node name="Enemy" type="CharacterBody3D" unique_id=501243503 groups=["enemy"]]
 wall_min_slide_angle = 0.08726646
@@ -28,19 +28,60 @@ script = ExtResource("1_xkw1x")
 avoidance_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1167840843]
+visible = false
 mesh = SubResource("CapsuleMesh_ogxq4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1369569006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2403934, 0)
 shape = SubResource("CapsuleShape3D_ogxq4")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=379892970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34680784, -0.36656082)
-mesh = SubResource("BoxMesh_43lb5")
-surface_material_override/0 = SubResource("StandardMaterial3D_xkw1x")
 
 [node name="HitArea" type="Area3D" parent="." unique_id=1885571670]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=739661083]
 shape = SubResource("CylinderShape3D_xkw1x")
+
+[node name="Model" type="Node3D" parent="." unique_id=1804858801]
+
+[node name="0" type="Node3D" parent="Model" unique_id=449033405]
+visible = false
+
+[node name="1_beijaflo_correndo" parent="Model/0" unique_id=1830975067 instance=ExtResource("2_8tr1a")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="1" type="Node3D" parent="Model" unique_id=1614425929]
+visible = false
+
+[node name="2_tartaruga_correndo" parent="Model/1" unique_id=597139927 instance=ExtResource("3_jfak0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="2" type="Node3D" parent="Model" unique_id=715146949]
+visible = false
+
+[node name="5_garca_correndo" parent="Model/2" unique_id=1706254885 instance=ExtResource("4_3o3gx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="3" type="Node3D" parent="Model" unique_id=1015299486]
+visible = false
+
+[node name="10_arara_correndo" parent="Model/3" unique_id=852007761 instance=ExtResource("5_3o3gx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="4" type="Node3D" parent="Model" unique_id=1158155421]
+visible = false
+
+[node name="20_macaco_correndo" parent="Model/4" unique_id=1484498836 instance=ExtResource("6_jennj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="5" type="Node3D" parent="Model" unique_id=1793816264]
+visible = false
+
+[node name="50_onca_correndo" parent="Model/5" unique_id=206357594 instance=ExtResource("7_o83p0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="6" type="Node3D" parent="Model" unique_id=1219892699]
+visible = false
+
+[node name="100_peixe_correndo" parent="Model/6" unique_id=487882974 instance=ExtResource("8_ynigi")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

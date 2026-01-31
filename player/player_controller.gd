@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 @onready var cam := $CameraRig/Center/YawPivot/PitchPivot/Camera3D
 @onready var cam_yaw_pivot := $CameraRig/Center/YawPivot
-@onready var health_bar := $CameraRig/CanvasLayer/HealthBar
+@onready var health_bar := $CanvasLayer/HealthBar
 @onready var visual := $Visual
 
 @onready var max_health = 100
@@ -24,6 +24,9 @@ var curr_mask_type = null
 @onready var projectile_onca_scene = preload("res://projectiles/ProjectileOnca.tscn")
 @onready var projectile_peixe_scene = preload("res://projectiles/ProjectilePeixe.tscn")
 
+var can_shoot = true
+var shoot_delay = 0.3
+
 func _process(delta):
 	# Align to camera direction.
 	visual.rotation.y = lerp_angle(visual.rotation.y, cam_yaw_pivot.global_rotation.y, turn_speed * delta)
@@ -31,6 +34,10 @@ func _process(delta):
 	# Update UI.
 	health_bar.max_value = max_health
 	health_bar.value = health
+
+	# Shoot action
+	if Input.is_action_pressed("m1") and curr_mask_type != null and can_shoot:
+		throw_projectile()
 
 func _physics_process(delta):
 	var input_dir = Vector2.ZERO
@@ -68,10 +75,6 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	move_and_slide()
-
-func _input(event):
-	if event.is_action_pressed("m1") and curr_mask_type != null: # Must have mask to shoot!?
-		throw_projectile()
 
 func remove_current_mask():
 	for mask in $Visual/MaskHandler/Masks.get_children():
@@ -139,5 +142,11 @@ func throw_projectile():
 
 	get_parent().add_child(projectile_instance)
 
+	can_shoot = false
+	$ShootDelay.start(shoot_delay)
+
 func take_damage(amount):
 	health = max(0, health - amount)
+
+func _on_shoot_delay_timeout() -> void:
+	can_shoot = true

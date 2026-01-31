@@ -86,9 +86,9 @@ script = ExtResource("2_wnvi2")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/Center/YawPivot/PitchPivot" unique_id=2114739121]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CameraRig" unique_id=1967782349]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1967782349]
 
-[node name="HealthBar" type="ProgressBar" parent="CameraRig/CanvasLayer" unique_id=755836806]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=755836806]
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 230.0
@@ -99,7 +99,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_83hs8")
 value = 50.0
 show_percentage = false
 
-[node name="Control" type="Control" parent="CameraRig/CanvasLayer" unique_id=237587511]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=237587511]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,7 +110,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="CameraRig/CanvasLayer/Control" unique_id=552411729]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=552411729]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,3 +125,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(1, 0, 1, 1)
+
+[node name="ShootDelay" type="Timer" parent="." unique_id=2115213560]
+wait_time = 0.3
+
+[connection signal="timeout" from="ShootDelay" to="." method="_on_shoot_delay_timeout"]
