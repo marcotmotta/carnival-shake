@@ -92,4 +92,14 @@ type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258346, -7.229157)
 
 [node name="EnemySpawner" parent="." unique_id=74397329 instance=ExtResource("4_js7pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2640786, -13.419016)
+
+[node name="SP1" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="0" unique_id=1435535799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -15)
+
+[node name="SP2" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="1" unique_id=2118685022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 15)
+
+[node name="SP3" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="2" unique_id=54624228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 0)
+
+[editable path="EnemySpawner"]
