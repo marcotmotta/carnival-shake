@@ -1,5 +1,12 @@
 extends Node
 
+enum stages {
+	COUNTING_DOWN_TO_START,
+	PLAYING,
+	VICTORY,
+	GAME_OVER
+}
+
 enum types_of_masks {
 	beijaflor,
 	tartaruga,

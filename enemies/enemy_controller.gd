@@ -1,16 +1,14 @@
 extends CharacterBody3D
 
 @export var speed := 6.0
-@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-
-var knockback_velocity := Vector3.ZERO
+@export var knockback_velocity := Vector3.ZERO
 @export var knockback_force := 40.0
 @export var knockback_friction := 5.0
 
 var player: Node3D
+var type: game_state.types_of_masks
 
-var type = game_state.types_of_masks.onca
-
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var max_health = 100
 @onready var health = 100
 

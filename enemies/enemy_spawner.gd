@@ -9,11 +9,18 @@ extends Node3D
 func _ready():
 	timer.wait_time = wait_time
 
-func get_random_spawn_position():
-	return spawn_points.get_children().pick_random().global_position
+func start():
+	spawn_enemy()
+	timer.start()
 
-func _on_timer_timeout():
+func spawn_enemy():
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.type = randi() % game_state.types_of_masks.size()
 	get_parent().add_child(enemy_instance)
 	enemy_instance.global_position = get_random_spawn_position()
+
+func get_random_spawn_position():
+	return spawn_points.get_children().pick_random().global_position
+
+func _on_timer_timeout():
+	spawn_enemy()

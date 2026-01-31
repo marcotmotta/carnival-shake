@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bi6vekfr7fjwx"]
 
 [ext_resource type="PackedScene" uid="uid://w3ywca3d08hw" path="res://player/Player.tscn" id="1_c6gwx"]
+[ext_resource type="Script" uid="uid://cktqo4gaq2c1i" path="res://game_controller.gd" id="1_js7pq"]
 [ext_resource type="PackedScene" uid="uid://ea6ylhjfwjcx" path="res://mask/Mask.tscn" id="2_2dftf"]
-[ext_resource type="PackedScene" uid="uid://b7av5y0wq0swv" path="res://enemies/Enemy.tscn" id="3_bcbcq"]
 [ext_resource type="PackedScene" uid="uid://b3h4bgtxoldaj" path="res://enemies/EnemySpawner.tscn" id="4_js7pq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_js7pq"]
+font_size = 32
 
 [sub_resource type="Environment" id="Environment_bcbcq"]
 glow_enabled = true
@@ -38,6 +41,25 @@ size = Vector3(5, 5, 5)
 data = PackedVector3Array(-2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5)
 
 [node name="World" type="Node3D" unique_id=1108411967]
+script = ExtResource("1_js7pq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2079587130]
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=313388341]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -200.0
+offset_right = 20.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_js7pq")
+horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1280964218]
 environment = SubResource("Environment_bcbcq")
@@ -51,12 +73,12 @@ shadow_enabled = true
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Ground" unique_id=824646056]
 navigation_mesh = SubResource("NavigationMesh_2dftf")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground/NavigationRegion3D" unique_id=1239798878]
+[node name="StaticBody3D1" type="StaticBody3D" parent="Ground/NavigationRegion3D" unique_id=1239798878]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D" unique_id=952855282]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D1" unique_id=952855282]
 shape = SubResource("BoxShape3D_k5hrn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D" unique_id=1308864467]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D1" unique_id=1308864467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.536743e-07, 0)
 mesh = SubResource("BoxMesh_ehurd")
 surface_material_override/0 = SubResource("StandardMaterial3D_o0y8a")
@@ -64,10 +86,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o0y8a")
 [node name="StaticBody3D2" type="StaticBody3D" parent="Ground/NavigationRegion3D" unique_id=254027138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.055698, 2.5845773, 7.474861)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=641840329]
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=641840329]
 mesh = SubResource("BoxMesh_2dftf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=1220700743]
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=1220700743]
 shape = SubResource("ConcavePolygonShape3D_bcbcq")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=868326428]
@@ -87,9 +109,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2007709, 1.8021827)
 [node name="Mask2" parent="." unique_id=619755121 instance=ExtResource("2_2dftf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.515499, 1.2404394, -5.3607254)
 type = 1
-
-[node name="Enemy" parent="." unique_id=501243503 instance=ExtResource("3_bcbcq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5258346, -7.229157)
 
 [node name="EnemySpawner" parent="." unique_id=74397329 instance=ExtResource("4_js7pq")]
 
