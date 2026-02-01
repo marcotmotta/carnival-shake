@@ -48,8 +48,8 @@ func on_countdown_finished():
 
 func change_wave():
 	if current_wave == max_wave:
-		# game finished
-		pass
+		curr_game_stage = game_state.stages.VICTORY
+		$Player.won.emit()
 		
 	else:
 		curr_game_stage = game_state.stages.COUNTING_DOWN_TO_START
