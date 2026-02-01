@@ -234,6 +234,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "WAVE: 1"
 label_settings = SubResource("LabelSettings_ofhxi")
+horizontal_alignment = 1
 
 [node name="Continue" type="Button" parent="CanvasLayer/PauseMenu" unique_id=1195162265]
 layout_mode = 1
@@ -251,6 +252,57 @@ grow_vertical = 2
 text = "CONTINUE"
 
 [node name="Exit" type="Button" parent="CanvasLayer/PauseMenu" unique_id=929105353]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = 121.0
+offset_right = 20.5
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
+[node name="VGOMenu" type="Control" parent="CanvasLayer" unique_id=1825726632]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/VGOMenu" unique_id=1712479362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="CanvasLayer/VGOMenu" unique_id=81177128]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -210.0
+offset_right = 31.5
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "	GAME OVER!"
+label_settings = SubResource("LabelSettings_ofhxi")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="CanvasLayer/VGOMenu" unique_id=682915122]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -302,6 +354,9 @@ volume_db = -25.0
 stream = ExtResource("27_a0lmo")
 volume_db = -25.0
 
+[connection signal="died" from="." to="CanvasLayer/VGOMenu" method="_on_player_died"]
+[connection signal="won" from="." to="CanvasLayer/VGOMenu" method="_on_player_won"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="CanvasLayer/PauseMenu" method="_on_continue_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Exit" to="CanvasLayer/PauseMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/VGOMenu/Exit" to="CanvasLayer/VGOMenu" method="_on_exit_pressed"]
 [connection signal="timeout" from="ShootDelay" to="." method="_on_shoot_delay_timeout"]

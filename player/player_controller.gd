@@ -13,10 +13,6 @@ extends CharacterBody3D
 @onready var max_health = 100
 @onready var health = 100
 
-var curr_mask_type = null
-
-var volumes = [-22, -27, -18, -18, -18, -24, -18]
-
 # Projectiles.
 @onready var projectile_beijaflor_scene = preload("res://projectiles/ProjectileBeijaFlor.tscn")
 @onready var projectile_tartaruga_scene = preload("res://projectiles/ProjectileTartaruga.tscn")
@@ -26,8 +22,13 @@ var volumes = [-22, -27, -18, -18, -18, -24, -18]
 @onready var projectile_onca_scene = preload("res://projectiles/ProjectileOnca.tscn")
 @onready var projectile_peixe_scene = preload("res://projectiles/ProjectilePeixe.tscn")
 
+var curr_mask_type = null
 var can_shoot = true
 var shoot_delay = 0.4
+var volumes = [-22, -27, -18, -18, -18, -24, -18]
+
+signal died
+signal won
 
 func _ready() -> void:
 	for audio in $Audios.get_children():
@@ -166,6 +167,9 @@ func throw_projectile():
 
 func take_damage(amount):
 	health = max(0, health - amount)
+
+	if health <= 0:
+		died.emit()
 
 func heal(amount):
 	health = min(max_health, health + amount)
