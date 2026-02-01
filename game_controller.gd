@@ -29,7 +29,7 @@ func start_countdown():
 	countdown_label.visible = true
 
 	for i in range(starter_countdown_time, 0, -1):
-		countdown_label.text = 'Next Wave in: ' + str(i)
+		countdown_label.text = 'Next wave in: ' + str(i)
 		await get_tree().create_timer(1.0).timeout
 	countdown_label.text = "GO!"
 	await get_tree().create_timer(0.5).timeout
