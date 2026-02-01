@@ -30,6 +30,19 @@ var volumes = [-22, -27, -18, -18, -18, -24, -18]
 signal died
 signal won
 
+@onready var audio_player = preload("res://audio/AudioPlayer.tscn")
+
+# mask audios
+@onready var audio_masks = [
+	preload("res://audio/Mascára - Beija Flor.mp3"),
+	preload("res://audio/Mascára - Tartaruga.mp3"),
+	preload("res://audio/Mascara - Garca.mp3"),
+	preload("res://audio/Mascara - Arara.mp3"),
+	preload("res://audio/Mascara - Mico.mp3"),
+	preload("res://audio/Mascara - Onca.mp3"),
+	preload("res://audio/Mascara - Peixe.mp3")
+]
+
 func _ready() -> void:
 	for audio in $Audios.get_children():
 		audio.play()
@@ -118,7 +131,13 @@ func add_mask(type):
 
 	$CanvasLayer/Bars.get_node(str(type)).visible = true
 
+	# play song
 	$Audios.get_node(str(type)).volume_db = volumes[type]
+
+	#play sfx
+	var audio = audio_player.instantiate()
+	audio.stream = audio_masks[type]
+	get_parent().add_child(audio)
 
 	curr_mask_type = type
 

@@ -18,6 +18,19 @@ var type: game_state.types_of_masks
 
 @onready var heal_scene = preload("res://heal/Heal.tscn")
 
+#audio
+@onready var audio_player = preload("res://audio/AudioPlayer.tscn")
+
+@onready var audios = [
+	preload("res://audio/Folioes 1.mp3"),
+	preload("res://audio/Folioes 2.mp3"),
+	preload("res://audio/Folioes 3.mp3"),
+	preload("res://audio/Folioes 4.mp3"),
+	preload("res://audio/Folioes 5.mp3"),
+]
+
+@onready var boss_hurt = preload("res://audio/Boss hurt.mp3")
+
 func _ready():
 	# Get player node.
 	player = get_tree().get_first_node_in_group("player")
@@ -73,6 +86,11 @@ func take_damage(amount, hit_type = null):
 				get_parent().add_child(heal_instance)
 				heal_instance.global_position = global_position
 
+				var audio = audio_player.instantiate()
+				audio.stream = audios.pick_random()
+				audio.vilume_db = -18
+				get_parent().add_child(audio)
+
 			queue_free()
 
 	else: # Is boss.
@@ -85,6 +103,11 @@ func take_damage(amount, hit_type = null):
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).blend_mode = 1
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).emission_energy_multiplier = 0
 
+				var audio = audio_player.instantiate()
+				audio.stream = boss_hurt
+				audio.vilume_db = -15
+				get_parent().add_child(audio)
+
 		# Red hit.
 		elif [game_state.types_of_masks.arara, game_state.types_of_masks.garca].has(hit_type):
 			red_health = max(0, red_health - 1)
@@ -94,6 +117,11 @@ func take_damage(amount, hit_type = null):
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).blend_mode = 1
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).emission_energy_multiplier = 0
 
+				var audio = audio_player.instantiate()
+				audio.stream = boss_hurt
+				audio.vilume_db = -15
+				get_parent().add_child(audio)
+
 		# Yellow hit.
 		elif [game_state.types_of_masks.macaco, game_state.types_of_masks.onca].has(hit_type):
 			yellow_health = max(0, yellow_health - 1)
@@ -102,6 +130,11 @@ func take_damage(amount, hit_type = null):
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).albedo_color = '#000000'
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).blend_mode = 1
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).emission_energy_multiplier = 0
+
+				var audio = audio_player.instantiate()
+				audio.stream = boss_hurt
+				audio.vilume_db = -15
+				get_parent().add_child(audio)
 
 		if (blue_health + red_health + yellow_health) == 0:
 			queue_free()
