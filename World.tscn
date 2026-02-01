@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://w3ywca3d08hw" path="res://player/Player.tscn" id="1_c6gwx"]
 [ext_resource type="Script" uid="uid://cktqo4gaq2c1i" path="res://game_controller.gd" id="1_js7pq"]
 [ext_resource type="PackedScene" uid="uid://ea6ylhjfwjcx" path="res://mask/Mask.tscn" id="2_2dftf"]
+[ext_resource type="Texture2D" uid="uid://bu6kdugqxk6qi" path="res://moonless_golf_4k.exr" id="2_bah7m"]
 [ext_resource type="PackedScene" uid="uid://ctg5me0cnok3b" path="res://map/arquibancada.tscn" id="2_eu7l1"]
 [ext_resource type="PackedScene" uid="uid://tpb5dj7luaeb" path="res://map/chao.tscn" id="2_wygdx"]
 [ext_resource type="PackedScene" uid="uid://b3h4bgtxoldaj" path="res://enemies/EnemySpawner.tscn" id="4_js7pq"]
@@ -11,12 +12,11 @@
 [sub_resource type="LabelSettings" id="LabelSettings_js7pq"]
 font_size = 32
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eu7l1"]
-sky_top_color = Color(0.2387324, 0.46797132, 0.6623063, 1)
-sun_angle_max = 60.0
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fv4w7"]
+panorama = ExtResource("2_bah7m")
 
 [sub_resource type="Sky" id="Sky_p1v5b"]
-sky_material = SubResource("ProceduralSkyMaterial_eu7l1")
+sky_material = SubResource("PanoramaSkyMaterial_fv4w7")
 
 [sub_resource type="Environment" id="Environment_p1v5b"]
 background_mode = 2

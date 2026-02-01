@@ -7,19 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://xv22bv8k5eyk" path="res://enemies/tartaruga/2_tartaruga_correndo.tscn" id="5_vp83o"]
 [ext_resource type="PackedScene" uid="uid://ca8cho1jvr58v" path="res://enemies/beijaflor/1_beijaflo_correndo.tscn" id="6_e2awe"]
 [ext_resource type="PackedScene" uid="uid://bjjglffbovr48" path="res://enemies/arara/10_arara_correndo.tscn" id="7_lb38e"]
+[ext_resource type="Texture2D" uid="uid://bu6kdugqxk6qi" path="res://moonless_golf_4k.exr" id="8_7fxis"]
+[ext_resource type="PackedScene" uid="uid://ctg5me0cnok3b" path="res://map/arquibancada.tscn" id="9_k15nl"]
+[ext_resource type="PackedScene" uid="uid://bmotokjr8s0c0" path="res://map/apoteose.tscn" id="10_4yyw3"]
+[ext_resource type="PackedScene" uid="uid://tpb5dj7luaeb" path="res://map/chao.tscn" id="11_ahxlq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ot3ob"]
-size = Vector3(100, 1, 100)
+size = Vector3(1000, 1, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmsp1"]
 albedo_color = Color(0.37254903, 0.29803923, 0.21960784, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lb38e"]
-sky_top_color = Color(0.2387324, 0.46797132, 0.6623063, 1)
-sun_angle_max = 60.0
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k15nl"]
+panorama = ExtResource("8_7fxis")
 
 [sub_resource type="Sky" id="Sky_lb38e"]
-sky_material = SubResource("ProceduralSkyMaterial_lb38e")
+sky_material = SubResource("PanoramaSkyMaterial_k15nl")
 
 [sub_resource type="Environment" id="Environment_7fxis"]
 background_mode = 2
@@ -61,6 +64,7 @@ shadow_enabled = true
 
 [node name="Ground" type="Node3D" parent="Background" unique_id=1688591651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Ground" unique_id=2112605224]
 mesh = SubResource("BoxMesh_ot3ob")
@@ -68,6 +72,61 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rmsp1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Background" unique_id=279303655]
 environment = SubResource("Environment_7fxis")
+
+[node name="Bench" type="Node3D" parent="Background" unique_id=1466691906]
+
+[node name="arquibancada" parent="Background/Bench" unique_id=458030895 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -59.527256, 0, -62.200092)
+
+[node name="arquibancada2" parent="Background/Bench" unique_id=2007998100 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -43.66925, 0, -72.53661)
+
+[node name="arquibancada3" parent="Background/Bench" unique_id=1418038608 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -91.25389, 0, -41.520123)
+
+[node name="arquibancada4" parent="Background/Bench" unique_id=719258428 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -75.39589, 0, -51.856644)
+
+[node name="arquibancada5" parent="Background/Bench" unique_id=130145192 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -27.832722, 0, -82.85913)
+
+[node name="arquibancada6" parent="Background/Bench" unique_id=97093141 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -11.97472, 0, -93.19565)
+
+[node name="arquibancada12" parent="Background/Bench" unique_id=48659460 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -107.121155, 0, -31.17757)
+
+[node name="arquibancada41" parent="Background/Bench" unique_id=1298123682 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, 3.9110126, 0, -103.55025)
+
+[node name="arquibancada7" parent="Background/Bench" unique_id=234476113 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, 67.23877, 0, -144.74406)
+
+[node name="arquibancada8" parent="Background/Bench" unique_id=1317257812 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -170.65134, 9.536743e-07, 10.164062)
+
+[node name="arquibancada9" parent="Background/Bench" unique_id=1108788881 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, 35.51213, 0, -124.0641)
+
+[node name="arquibancada10" parent="Background/Bench" unique_id=1502964772 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, 51.370132, 0, -134.40062)
+
+[node name="arquibancada11" parent="Background/Bench" unique_id=936546821 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -154.81482, 9.536743e-07, -0.15844822)
+
+[node name="arquibancada13" parent="Background/Bench" unique_id=1367734800 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -138.95682, 9.536743e-07, -10.494966)
+
+[node name="arquibancada14" parent="Background/Bench" unique_id=2040013930 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, 19.644867, 0, -113.72154)
+
+[node name="arquibancada42" parent="Background/Bench" unique_id=635261165 instance=ExtResource("9_k15nl")]
+transform = Transform3D(0.83774734, 0, 0.5460581, 0, 1, 0, -0.5460581, 0, 0.83774734, -123.07108, 9.536743e-07, -20.849571)
+
+[node name="apoteose" parent="Background" unique_id=403078524 instance=ExtResource("10_4yyw3")]
+transform = Transform3D(0.6189594, 0, 1.3443549, 0, 1.4799999, 0, -1.3443549, 0, 0.6189594, -166.20522, 9.913874, -40.394505)
+
+[node name="Chao" parent="Background" unique_id=1895501329 instance=ExtResource("11_ahxlq")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1441184956]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -0.058, 1, 2)
