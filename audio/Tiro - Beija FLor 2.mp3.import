@@ -2,13 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://tccl3om5u42f"
-path="res://.godot/imported/Tiro - Beija FLor 2.mp3-2ecf76b5e7568eab4ada2d285c46fb9b.mp3str"
+uid="uid://ppah7ljedfun"
+path="res://.godot/imported/Tiro - Beija Flor 2.mp3-b9a2ec519abcd8d7e415bbf98e864f5b.mp3str"
 
 [deps]
 
-source_file="res://audio/Tiro - Beija FLor 2.mp3"
-dest_files=["res://.godot/imported/Tiro - Beija FLor 2.mp3-2ecf76b5e7568eab4ada2d285c46fb9b.mp3str"]
+source_file="res://audio/Tiro - Beija Flor 2.mp3"
+dest_files=["res://.godot/imported/Tiro - Beija Flor 2.mp3-b9a2ec519abcd8d7e415bbf98e864f5b.mp3str"]
 
 [params]
 

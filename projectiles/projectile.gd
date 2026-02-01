@@ -14,9 +14,25 @@ var hitted_enemies = []
 var rotation_axis: Vector3
 @export var rotation_speed := 5.0
 
+@onready var audio_player = preload("res://audio/AudioPlayer.tscn")
+@onready var audio_projectiles = [
+	preload("res://audio/Tiro - Beija Flor 1.mp3"),
+	preload("res://audio/Tiro - Tartaruga 1.mp3"),
+	preload("res://audio/Tiro - Garca 1.mp3"),
+	preload("res://audio/Tiro - Arara 1.mp3"),
+	preload("res://audio/Tiro - Mico 1.mp3"),
+	preload("res://audio/Tiro - Onca 1.mp3"),
+	preload("res://audio/Tiro - Peixe 1.mp3")
+]
+
 func _ready():
 	# Pick random axis once.
 	rotation_axis = Vector3(randf() - 0.5, randf() - 0.5, randf() - 0.5).normalized()
+	
+	var audio = audio_player.instantiate()
+	audio.stream = audio_projectiles[type]
+	audio.volume_db = -28
+	get_parent().add_child(audio)
 
 func _process(delta):
 	$Model.rotate(rotation_axis, rotation_speed * delta)
