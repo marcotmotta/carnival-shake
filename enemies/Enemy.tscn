@@ -10,6 +10,34 @@
 [ext_resource type="PackedScene" uid="uid://b0bybkm38ufnh" path="res://enemies/peixe/100_peixe_correndo.tscn" id="8_ynigi"]
 [ext_resource type="PackedScene" uid="uid://b871r5612s2nr" path="res://enemies/boss/carla_perez_1.tscn" id="9_qtb2y"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_qtb2y"]
+font_size = 35
+font_color = Color(1, 0.7294118, 1, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_qtb2y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtb2y"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjykr"]
+bg_color = Color(0.6, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ogxq4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogxq4"]
@@ -24,6 +52,36 @@ wall_min_slide_angle = 0.08726646
 floor_block_on_wall = false
 floor_max_angle = 0.08726646
 script = ExtResource("1_xkw1x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1345332691]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=240245666]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.5
+offset_top = 23.0
+offset_right = 116.5
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "Paola Oliveira"
+label_settings = SubResource("LabelSettings_qtb2y")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=558274816]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 72.0
+offset_right = 300.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme = SubResource("Theme_qtb2y")
+theme_override_styles/background = SubResource("StyleBoxFlat_qtb2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yjykr")
+value = 50.0
+show_percentage = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=656147368]
 avoidance_enabled = true

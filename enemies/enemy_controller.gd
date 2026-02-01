@@ -39,12 +39,18 @@ func _ready():
 	if type <= 6: # not boss
 		$Model.get_node(str(type)).visible = true # am i genius?
 	else:
+		$CanvasLayer.visible = true
 		damage = 30
 		speed = 15.0
 		$Model/boss.visible = true
 
 	# Wait for navigation to be ready.
 	await get_tree().physics_frame
+
+func _process(delta: float) -> void:
+	if type == 7:
+		$CanvasLayer/ProgressBar.max_value = 60
+		$CanvasLayer/ProgressBar.value = blue_health + red_health + yellow_health
 
 func _physics_process(delta):
 	if player:
