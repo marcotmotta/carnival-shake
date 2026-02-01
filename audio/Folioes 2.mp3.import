@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cr4p6iv8jxoy3"
+path="res://.godot/imported/Folioes 2.mp3-466ce2a34beb31d0e0fd18da1f092aec.mp3str"
+
+[deps]
+
+source_file="res://audio/Folioes 2.mp3"
+dest_files=["res://.godot/imported/Folioes 2.mp3-466ce2a34beb31d0e0fd18da1f092aec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

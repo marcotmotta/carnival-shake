@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn7qxy2r4oin7"
+path="res://.godot/imported/Boss hurt.mp3-d17f0a060e8c7cab33172594aaf91d44.mp3str"
+
+[deps]
+
+source_file="res://audio/Boss hurt.mp3"
+dest_files=["res://.godot/imported/Boss hurt.mp3-d17f0a060e8c7cab33172594aaf91d44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

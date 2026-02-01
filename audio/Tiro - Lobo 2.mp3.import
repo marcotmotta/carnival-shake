@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m4n7ase5jrnj"
+path="res://.godot/imported/Tiro - Lobo 2.mp3-2cb1a3641491f2daaa2fab73e29dd5cc.mp3str"
+
+[deps]
+
+source_file="res://audio/Tiro - Lobo 2.mp3"
+dest_files=["res://.godot/imported/Tiro - Lobo 2.mp3-2cb1a3641491f2daaa2fab73e29dd5cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

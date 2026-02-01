@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://tpb5dj7luaeb"]
+
+[ext_resource type="PackedScene" uid="uid://dbttnrnn5hqpn" path="res://map/Chao.glb" id="1_upxjb"]
+
+[node name="Chao" unique_id=1895501329 instance=ExtResource("1_upxjb")]

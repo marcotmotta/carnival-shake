@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwj3mug10a0dt"
+path="res://.godot/imported/Tiro - Garca 1.mp3-9e3f8a4f233fc3c852932a0f81972a68.mp3str"
+
+[deps]
+
+source_file="res://audio/Tiro - Garca 1.mp3"
+dest_files=["res://.godot/imported/Tiro - Garca 1.mp3-9e3f8a4f233fc3c852932a0f81972a68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

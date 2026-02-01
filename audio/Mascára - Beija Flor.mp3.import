@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6r6hjepegay3"
+path="res://.godot/imported/Mascára - Beija Flor.mp3-0ecd22617187e1a0ffd266795b690a68.mp3str"
+
+[deps]
+
+source_file="res://audio/Mascára - Beija Flor.mp3"
+dest_files=["res://.godot/imported/Mascára - Beija Flor.mp3-0ecd22617187e1a0ffd266795b690a68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

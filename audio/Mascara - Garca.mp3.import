@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv8mslwhimifg"
+path="res://.godot/imported/Mascara - Garca.mp3-ffb9d4a5f2348a6a83580432a2948eb4.mp3str"
+
+[deps]
+
+source_file="res://audio/Mascara - Garca.mp3"
+dest_files=["res://.godot/imported/Mascara - Garca.mp3-ffb9d4a5f2348a6a83580432a2948eb4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

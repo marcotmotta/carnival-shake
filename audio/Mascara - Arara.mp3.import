@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbpunrcaxwcrc"
+path="res://.godot/imported/Mascara - Arara.mp3-96625ceac90c462a8caaac89e1d9bd77.mp3str"
+
+[deps]
+
+source_file="res://audio/Mascara - Arara.mp3"
+dest_files=["res://.godot/imported/Mascara - Arara.mp3-96625ceac90c462a8caaac89e1d9bd77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

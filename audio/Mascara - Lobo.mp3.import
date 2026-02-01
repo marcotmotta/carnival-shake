@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpuw50ggovcw6"
+path="res://.godot/imported/Mascara - Lobo.mp3-a143723fd0d41410dedfc1f30756309c.mp3str"
+
+[deps]
+
+source_file="res://audio/Mascara - Lobo.mp3"
+dest_files=["res://.godot/imported/Mascara - Lobo.mp3-a143723fd0d41410dedfc1f30756309c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://bcsvdmoitip8k"]
 
+[ext_resource type="Script" uid="uid://c75omcpi4g01y" path="res://audio/audio_player_3d.gd" id="1_rfm0r"]
+
 [node name="AudioPlayer3D" type="AudioStreamPlayer3D" unique_id=2038804133]
+volume_db = -20.0
+autoplay = true
+script = ExtResource("1_rfm0r")
+
+[node name="Timer" type="Timer" parent="." unique_id=1051173360]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
