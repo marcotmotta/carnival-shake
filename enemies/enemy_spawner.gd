@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var wait_time = 6.0
+@export var wait_time = 5.0
 
 @onready var enemy_scene = preload("res://enemies/Enemy.tscn")
 @onready var timer = $Timer

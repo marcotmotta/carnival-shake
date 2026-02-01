@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed := 5.0
+@export var speed := 12.0
 @export var knockback_velocity := Vector3.ZERO
 @export var knockback_force := 40.0
 @export var knockback_friction := 5.0
@@ -71,7 +71,7 @@ func take_damage(amount, hit_type = null):
 		health = max(0, health - amount)
 
 		if health <= 0:
-			if (randi() % 100) <= 5: # 5% chance to spawn a heal on death
+			if (randi() % 100) <= 10: # 10% chance to spawn a heal on death
 				var heal_instance = heal_scene.instantiate()
 				get_parent().add_child(heal_instance)
 				heal_instance.global_position = global_position

@@ -3,42 +3,49 @@
 [ext_resource type="PackedScene" uid="uid://w3ywca3d08hw" path="res://player/Player.tscn" id="1_c6gwx"]
 [ext_resource type="Script" uid="uid://cktqo4gaq2c1i" path="res://game_controller.gd" id="1_js7pq"]
 [ext_resource type="PackedScene" uid="uid://ea6ylhjfwjcx" path="res://mask/Mask.tscn" id="2_2dftf"]
+[ext_resource type="PackedScene" uid="uid://ctg5me0cnok3b" path="res://map/arquibancada.tscn" id="2_eu7l1"]
 [ext_resource type="PackedScene" uid="uid://b3h4bgtxoldaj" path="res://enemies/EnemySpawner.tscn" id="4_js7pq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_js7pq"]
 font_size = 32
 
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_eu7l1"]
+rayleigh_color = Color(0.5631315, 0.8172115, 1, 1)
+ground_color = Color(0, 0, 0, 1)
+energy_multiplier = 6.89
+
+[sub_resource type="Sky" id="Sky_p1v5b"]
+sky_material = SubResource("PhysicalSkyMaterial_eu7l1")
+
 [sub_resource type="Environment" id="Environment_bcbcq"]
+background_mode = 2
+sky = SubResource("Sky_p1v5b")
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eu7l1"]
+size = Vector3(500, 60, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eu7l1"]
+size = Vector3(150, 1, 90)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1v5b"]
+albedo_color = Color(0.29586652, 0.2958665, 0.2958665, 1)
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_2dftf"]
-vertices = PackedVector3Array(-24.5, 0.99999905, 5.75, -13.25, 0.99999905, 6, -13, 0.99999905, 4.25, -6.25, 0.99999905, 4.25, -6, 0.99999905, -24.5, -24.5, 0.99999905, -24.5, -4.75, 0.99999905, 4.25, -4.75, 2.999999, 4.75, 24.5, 0.99999905, 4.75, -3.2875004, 1.499999, 4.75, -1.8250008, 0.99999905, 4.75, 24.5, 0.99999905, -24.5, -4.75, 2.999999, 5.25, -12.25, 5.499999, 5.25, -12.25, 5.499999, 9.5, -4.75, 2.999999, 9.5, -7.25, 5.249999, 5.25, -7.25, 5.249999, 9.5, 24.5, 0.99999905, 24.5, -4.75, 0.99999905, 10.5, -6.75, 0.99999905, 24.5, -6.75, 0.99999905, 10.5, -3.2875004, 1.499999, 5.2250004, -1.8250008, 0.99999905, 5.200001, -3.2875004, 1.499999, 9.262501, -1.8250008, 0.99999905, 9.025002, -24.5, 0.99999905, 9, -13.25, 0.99999905, 8.75, -13, 0.99999905, 10.5, -11, 0.99999905, 24.5, -11, 0.99999905, 10.5, -24.5, 0.99999905, 24.5)
-polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(4, 3, 2), PackedInt32Array(0, 5, 2), PackedInt32Array(2, 5, 4), PackedInt32Array(6, 3, 4), PackedInt32Array(7, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 6, 8), PackedInt32Array(8, 6, 11), PackedInt32Array(11, 6, 4), PackedInt32Array(15, 17, 12), PackedInt32Array(12, 17, 16), PackedInt32Array(16, 17, 14), PackedInt32Array(16, 14, 13), PackedInt32Array(20, 19, 18), PackedInt32Array(18, 19, 8), PackedInt32Array(20, 21, 19), PackedInt32Array(12, 7, 22), PackedInt32Array(22, 7, 9), PackedInt32Array(22, 9, 23), PackedInt32Array(23, 9, 10), PackedInt32Array(23, 10, 8), PackedInt32Array(15, 12, 24), PackedInt32Array(24, 12, 22), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 23), PackedInt32Array(25, 23, 8), PackedInt32Array(15, 24, 19), PackedInt32Array(19, 24, 25), PackedInt32Array(19, 25, 8), PackedInt32Array(27, 26, 1), PackedInt32Array(1, 26, 0), PackedInt32Array(26, 27, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(26, 28, 31), PackedInt32Array(31, 28, 29), PackedInt32Array(30, 21, 29), PackedInt32Array(29, 21, 20)]
+vertices = PackedVector3Array(-74.5, 0.99999905, -44.5, -74.5, 0.99999905, 44.5, 74.5, 0.99999905, 44.5, 74.5, 0.99999905, -44.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_height = 5.0
 agent_max_climb = 2.0
 agent_max_slope = 90.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5hrn"]
-size = Vector3(50, 1, 50)
+size = Vector3(150, 1, 90)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ehurd"]
-size = Vector3(50, 1, 50)
+size = Vector3(150, 1, 90)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0y8a"]
-albedo_color = Color(0, 0.2690701, 3.6098064e-07, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2dftf"]
-size = Vector3(5, 5, 5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bcbcq"]
-data = PackedVector3Array(-2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, 2.5, -2.5, 2.5, 2.5, 2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5)
-
-[sub_resource type="PrismMesh" id="PrismMesh_bcbcq"]
-left_to_right = 0.0
-size = Vector3(5, 5, 5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_js7pq"]
-data = PackedVector3Array(-2.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5)
+albedo_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
 
 [node name="World" type="Node3D" unique_id=1108411967]
 script = ExtResource("1_js7pq")
@@ -70,6 +77,35 @@ shadow_enabled = true
 
 [node name="Ground" type="Node3D" parent="." unique_id=646917053]
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground" unique_id=1923143758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44.2697)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D" unique_id=855281426]
+shape = SubResource("BoxShape3D_eu7l1")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Ground" unique_id=1767727913]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 74.405334, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D3" unique_id=1103785641]
+shape = SubResource("BoxShape3D_eu7l1")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Ground" unique_id=543362924]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -74.45558, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D4" unique_id=1404967666]
+shape = SubResource("BoxShape3D_eu7l1")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground" unique_id=259586306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 43.980232)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D2" unique_id=600741665]
+shape = SubResource("BoxShape3D_eu7l1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=455130497]
+transform = Transform3D(4.8388996, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40204525, 0)
+mesh = SubResource("BoxMesh_eu7l1")
+surface_material_override/0 = SubResource("StandardMaterial3D_p1v5b")
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Ground" unique_id=824646056]
 navigation_mesh = SubResource("NavigationMesh_2dftf")
 
@@ -83,22 +119,239 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.536743e-07, 0)
 mesh = SubResource("BoxMesh_ehurd")
 surface_material_override/0 = SubResource("StandardMaterial3D_o0y8a")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/NavigationRegion3D" unique_id=254027138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.055698, 2.5845773, 7.474861)
+[node name="arquibancada" parent="Ground" unique_id=458030895 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.020696, 0, -52.581604)
 
-[node name="MeshInstance3D1" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=641840329]
-mesh = SubResource("BoxMesh_2dftf")
+[node name="arquibancada2" parent="Ground" unique_id=1198532634 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9086456, 0, -52.581604)
 
-[node name="CollisionShape3D1" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=1220700743]
-shape = SubResource("ConcavePolygonShape3D_bcbcq")
+[node name="arquibancada3" parent="Ground" unique_id=1636168006 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.89207, 0, -52.581604)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=868326428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-mesh = SubResource("PrismMesh_bcbcq")
+[node name="arquibancada4" parent="Ground" unique_id=1489209891 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.96273, 0, -52.581604)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground/NavigationRegion3D/StaticBody3D2" unique_id=288024198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_js7pq")
+[node name="arquibancada5" parent="Ground" unique_id=778360871 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.812351, 0, -52.581604)
+
+[node name="arquibancada6" parent="Ground" unique_id=1044678278 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.74169, 0, -52.581604)
+
+[node name="arquibancada7" parent="Ground" unique_id=138372923 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.59485, 0, -52.581604)
+
+[node name="arquibancada8" parent="Ground" unique_id=202812140 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.665504, 0, -52.581604)
+
+[node name="arquibancada9" parent="Ground" unique_id=69618991 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.46622, 0, -52.581604)
+
+[node name="arquibancada10" parent="Ground" unique_id=1909341979 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.53688, 0, -52.581604)
+
+[node name="arquibancada11" parent="Ground" unique_id=302221241 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.761795, 0, -52.581604)
+
+[node name="arquibancada12" parent="Ground" unique_id=590255278 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.83246, 0, -52.581604)
+
+[node name="arquibancada13" parent="Ground" unique_id=857167756 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -241.75233, 0, -52.581604)
+
+[node name="arquibancada14" parent="Ground" unique_id=651273387 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -222.823, 0, -52.581604)
+
+[node name="arquibancada15" parent="Ground" unique_id=1566639123 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.62372, 0, -52.581604)
+
+[node name="arquibancada16" parent="Ground" unique_id=289933600 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.69437, 0, -52.581604)
+
+[node name="arquibancada17" parent="Ground" unique_id=1922747411 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.9193, 0, -52.581604)
+
+[node name="arquibancada18" parent="Ground" unique_id=594491597 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.98996, 0, -52.581604)
+
+[node name="arquibancada19" parent="Ground" unique_id=719033857 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -355.32648, 0, -52.581604)
+
+[node name="arquibancada20" parent="Ground" unique_id=764229436 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -336.39716, 0, -52.581604)
+
+[node name="arquibancada23" parent="Ground" unique_id=1849353712 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -317.49344, 0, -52.581604)
+
+[node name="arquibancada24" parent="Ground" unique_id=948871608 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.5641, 0, -52.581604)
+
+[node name="arquibancada25" parent="Ground" unique_id=1864167794 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 363.13855, 0, -52.581604)
+
+[node name="arquibancada29" parent="Ground" unique_id=1259851891 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 287.43576, 0, -52.581604)
+
+[node name="arquibancada30" parent="Ground" unique_id=54475580 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 306.3651, 0, -52.581604)
+
+[node name="arquibancada31" parent="Ground" unique_id=1926455843 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.56439, 0, -52.581604)
+
+[node name="arquibancada32" parent="Ground" unique_id=1684625285 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.4937, 0, -52.581604)
+
+[node name="arquibancada33" parent="Ground" unique_id=66650219 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325.2688, 0, -52.581604)
+
+[node name="arquibancada34" parent="Ground" unique_id=434515824 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 344.19815, 0, -52.581604)
+
+[node name="arquibancada35" parent="Ground" unique_id=1406876201 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.27827, 0, -52.581604)
+
+[node name="arquibancada36" parent="Ground" unique_id=461986193 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.20761, 0, -52.581604)
+
+[node name="arquibancada37" parent="Ground" unique_id=1302192834 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.40689, 0, -52.581604)
+
+[node name="arquibancada38" parent="Ground" unique_id=1755963793 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.33624, 0, -52.581604)
+
+[node name="arquibancada39" parent="Ground" unique_id=1001314533 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.11131, 0, -52.581604)
+
+[node name="arquibancada40" parent="Ground" unique_id=1193374795 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.04065, 0, -52.581604)
+
+[node name="arquibancada41" parent="Ground" unique_id=1228330038 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.704132, 0, -52.581604)
+
+[node name="arquibancada42" parent="Ground" unique_id=857178279 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.63345, 0, -52.581604)
+
+[node name="arquibancada43" parent="Ground" unique_id=2134359059 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.53717, 0, -52.581604)
+
+[node name="arquibancada44" parent="Ground" unique_id=2100144981 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.46652, 0, -52.581604)
+
+[node name="arquibancada21" parent="Ground" unique_id=1103973546 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15.020696, 0, 52.511284)
+
+[node name="arquibancada22" parent="Ground" unique_id=1738183526 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9086456, 0, 52.511284)
+
+[node name="arquibancada26" parent="Ground" unique_id=440077306 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -52.89207, 0, 52.511284)
+
+[node name="arquibancada27" parent="Ground" unique_id=968404449 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -33.96273, 0, 52.511284)
+
+[node name="arquibancada28" parent="Ground" unique_id=1344272644 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.812351, 0, 52.511284)
+
+[node name="arquibancada45" parent="Ground" unique_id=921684365 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 41.74169, 0, 52.511284)
+
+[node name="arquibancada46" parent="Ground" unique_id=351613880 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -128.59485, 0, 52.511284)
+
+[node name="arquibancada47" parent="Ground" unique_id=1531905743 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -109.665504, 0, 52.511284)
+
+[node name="arquibancada48" parent="Ground" unique_id=1257959112 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -166.46622, 0, 52.511284)
+
+[node name="arquibancada49" parent="Ground" unique_id=36008663 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -147.53688, 0, 52.511284)
+
+[node name="arquibancada50" parent="Ground" unique_id=1374984739 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -90.761795, 0, 52.511284)
+
+[node name="arquibancada51" parent="Ground" unique_id=315585542 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -71.83246, 0, 52.511284)
+
+[node name="arquibancada52" parent="Ground" unique_id=697484855 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -241.75233, 0, 52.511284)
+
+[node name="arquibancada53" parent="Ground" unique_id=85893704 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -222.823, 0, 52.511284)
+
+[node name="arquibancada54" parent="Ground" unique_id=1565299883 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -279.62372, 0, 52.511284)
+
+[node name="arquibancada55" parent="Ground" unique_id=1250691242 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -260.69437, 0, 52.511284)
+
+[node name="arquibancada56" parent="Ground" unique_id=750691352 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -203.9193, 0, 52.511284)
+
+[node name="arquibancada57" parent="Ground" unique_id=1347642527 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -184.98996, 0, 52.511284)
+
+[node name="arquibancada58" parent="Ground" unique_id=871276075 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -355.32648, 0, 52.511284)
+
+[node name="arquibancada59" parent="Ground" unique_id=2054923734 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -336.39716, 0, 52.511284)
+
+[node name="arquibancada60" parent="Ground" unique_id=1887998848 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -317.49344, 0, 52.511284)
+
+[node name="arquibancada61" parent="Ground" unique_id=1065402848 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -298.5641, 0, 52.511284)
+
+[node name="arquibancada62" parent="Ground" unique_id=1655971721 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 363.13855, 0, 52.511284)
+
+[node name="arquibancada63" parent="Ground" unique_id=1448442519 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 287.43576, 0, 52.511284)
+
+[node name="arquibancada64" parent="Ground" unique_id=991141568 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 306.3651, 0, 52.511284)
+
+[node name="arquibancada65" parent="Ground" unique_id=24918280 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 249.56439, 0, 52.511284)
+
+[node name="arquibancada66" parent="Ground" unique_id=1900037819 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 268.4937, 0, 52.511284)
+
+[node name="arquibancada67" parent="Ground" unique_id=1074658642 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 325.2688, 0, 52.511284)
+
+[node name="arquibancada68" parent="Ground" unique_id=625323950 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 344.19815, 0, 52.511284)
+
+[node name="arquibancada69" parent="Ground" unique_id=937043314 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 174.27827, 0, 52.511284)
+
+[node name="arquibancada70" parent="Ground" unique_id=996538225 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 193.20761, 0, 52.511284)
+
+[node name="arquibancada71" parent="Ground" unique_id=1381488843 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 136.40689, 0, 52.511284)
+
+[node name="arquibancada72" parent="Ground" unique_id=42981026 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 155.33624, 0, 52.511284)
+
+[node name="arquibancada73" parent="Ground" unique_id=1761709419 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 212.11131, 0, 52.511284)
+
+[node name="arquibancada74" parent="Ground" unique_id=840982564 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 231.04065, 0, 52.511284)
+
+[node name="arquibancada75" parent="Ground" unique_id=1032037368 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 60.704132, 0, 52.511284)
+
+[node name="arquibancada76" parent="Ground" unique_id=139024991 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 79.63345, 0, 52.511284)
+
+[node name="arquibancada77" parent="Ground" unique_id=492811997 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98.53717, 0, 52.511284)
+
+[node name="arquibancada78" parent="Ground" unique_id=1239786302 instance=ExtResource("2_eu7l1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 117.46652, 0, 52.511284)
 
 [node name="Player" parent="." unique_id=1288974800 instance=ExtResource("1_c6gwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.840885, 2.2265863, 0)
