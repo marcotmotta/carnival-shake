@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dldiucwnxu0uy"
-path.s3tc="res://.godot/imported/arquibancada_0.png-22d0e972c42fa361cf3a8883ce797b0d.s3tc.ctex"
+path.s3tc="res://.godot/imported/arquibancada_0.png-b11c6eaa01cada929e0b1d47cf2b0553.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://arquibancada_0.png"
-dest_files=["res://.godot/imported/arquibancada_0.png-22d0e972c42fa361cf3a8883ce797b0d.s3tc.ctex"]
+source_file="res://map/arquibancada_0.png"
+dest_files=["res://.godot/imported/arquibancada_0.png-b11c6eaa01cada929e0b1d47cf2b0553.s3tc.ctex"]
 
 [params]
 

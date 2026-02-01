@@ -9,12 +9,12 @@ var player: Node3D
 var type: game_state.types_of_masks
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var damage = 20
+@onready var damage = 25
 @onready var max_health = 100
 @onready var health = 100
-@onready var blue_health = 12
-@onready var red_health = 12
-@onready var yellow_health = 12
+@onready var blue_health = 20
+@onready var red_health = 20
+@onready var yellow_health = 20
 
 @onready var heal_scene = preload("res://heal/Heal.tscn")
 
@@ -26,7 +26,8 @@ func _ready():
 	if type <= 6: # not boss
 		$Model.get_node(str(type)).visible = true # am i genius?
 	else:
-		damage = 25
+		damage = 30
+		speed = 15.0
 		$Model/boss.visible = true
 
 	# Wait for navigation to be ready.
@@ -41,10 +42,6 @@ func _physics_process(delta):
 
 	var next_point = nav_agent.get_next_path_position()
 	var direction = (next_point - global_position).normalized()
-	
-	print(nav_agent.target_position)
-	print(next_point)
-	print(direction)
 
 	velocity = direction * speed + knockback_velocity
 
@@ -71,7 +68,7 @@ func take_damage(amount, hit_type = null):
 		health = max(0, health - amount)
 
 		if health <= 0:
-			if (randi() % 100) <= 10: # 10% chance to spawn a heal on death
+			if (randi() % 100) <= 17: # 17% chance to spawn a heal on death
 				var heal_instance = heal_scene.instantiate()
 				get_parent().add_child(heal_instance)
 				heal_instance.global_position = global_position

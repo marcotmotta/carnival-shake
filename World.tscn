@@ -47,7 +47,7 @@ size = Vector3(150, 1, 90)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0y8a"]
 albedo_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
 
-[node name="World" type="Node3D" unique_id=1108411967]
+[node name="World" type="Node3D" unique_id=1108411967 groups=["world"]]
 script = ExtResource("1_js7pq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2079587130]

@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://do4n2jcakvsib" path="res://player/bars/ui1_0004_macaco.png" id="16_mlfor"]
 [ext_resource type="Texture2D" uid="uid://clv6w8cd6x4ri" path="res://player/bars/ui1_0005_onca.png" id="17_2m0d2"]
 [ext_resource type="Texture2D" uid="uid://bl3cq6uw7w46j" path="res://player/bars/ui1_0006_peixe.png" id="18_8nth8"]
+[ext_resource type="Script" uid="uid://chydsr5yncycg" path="res://player/pause_menu.gd" id="19_ofhxi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehurd"]
 size = Vector3(0.5703125, 1.2451172, 0.47460938)
@@ -29,6 +30,9 @@ bg_color = Color(0, 0, 0, 0.39215687)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83hs8"]
 bg_color = Color(0.4333334, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofhxi"]
+font_size = 30
 
 [node name="Player" type="CharacterBody3D" unique_id=1288974800 groups=["player"]]
 script = ExtResource("1_3c3w1")
@@ -187,7 +191,75 @@ position = Vector2(410, 620)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("18_8nth8")
 
+[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=683760310]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_ofhxi")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/PauseMenu" unique_id=1253270017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Wave" type="Label" parent="CanvasLayer/PauseMenu" unique_id=1913529919]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -210.0
+offset_right = 31.5
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WAVE: 1"
+label_settings = SubResource("LabelSettings_ofhxi")
+
+[node name="Continue" type="Button" parent="CanvasLayer/PauseMenu" unique_id=1195162265]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = 75.0
+offset_right = 45.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTINUE"
+
+[node name="Exit" type="Button" parent="CanvasLayer/PauseMenu" unique_id=929105353]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = 121.0
+offset_right = 20.5
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
 [node name="ShootDelay" type="Timer" parent="." unique_id=2115213560]
 wait_time = 0.3
 
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="CanvasLayer/PauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/Exit" to="CanvasLayer/PauseMenu" method="_on_exit_pressed"]
 [connection signal="timeout" from="ShootDelay" to="." method="_on_shoot_delay_timeout"]
