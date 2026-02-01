@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7grk5x8ngfkb"
+path="res://.godot/imported/Loop onça.wav-c6f3183f2037e5b06b9ae97cb01d0d3d.sample"
+
+[deps]
+
+source_file="res://audio/Loop onça.wav"
+dest_files=["res://.godot/imported/Loop onça.wav-c6f3183f2037e5b06b9ae97cb01d0d3d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

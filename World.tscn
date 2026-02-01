@@ -9,15 +9,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_js7pq"]
 font_size = 32
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_eu7l1"]
-rayleigh_color = Color(0.5631315, 0.8172115, 1, 1)
-ground_color = Color(0, 0, 0, 1)
-energy_multiplier = 6.89
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eu7l1"]
+sky_top_color = Color(0.2387324, 0.46797132, 0.6623063, 1)
+sun_angle_max = 60.0
 
 [sub_resource type="Sky" id="Sky_p1v5b"]
-sky_material = SubResource("PhysicalSkyMaterial_eu7l1")
+sky_material = SubResource("ProceduralSkyMaterial_eu7l1")
 
-[sub_resource type="Environment" id="Environment_bcbcq"]
+[sub_resource type="Environment" id="Environment_p1v5b"]
 background_mode = 2
 sky = SubResource("Sky_p1v5b")
 glow_enabled = true
@@ -29,7 +28,7 @@ size = Vector3(500, 60, 1)
 size = Vector3(150, 1, 90)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1v5b"]
-albedo_color = Color(0.29586652, 0.2958665, 0.2958665, 1)
+albedo_color = Color(0.3730343, 0.299597, 0.22144625, 1)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2dftf"]
 vertices = PackedVector3Array(-74.5, 0.99999905, -44.5, -74.5, 0.99999905, 44.5, 74.5, 0.99999905, 44.5, 74.5, 0.99999905, -44.5)
@@ -45,7 +44,7 @@ size = Vector3(150, 1, 90)
 size = Vector3(150, 1, 90)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0y8a"]
-albedo_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
+albedo_color = Color(0.37254903, 0.29803923, 0.21960784, 1)
 
 [node name="World" type="Node3D" unique_id=1108411967 groups=["world"]]
 script = ExtResource("1_js7pq")
@@ -68,8 +67,8 @@ size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_js7pq")
 horizontal_alignment = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1280964218]
-environment = SubResource("Environment_bcbcq")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=521951658]
+environment = SubResource("Environment_p1v5b")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2097769246]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
@@ -359,35 +358,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.840885, 2.2265863, 0)
 [node name="EnemySpawner" parent="." unique_id=74397329 instance=ExtResource("4_js7pq")]
 
 [node name="SP1" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="0" unique_id=1435535799]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8455772, 4.709652, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.591045, 10.73552, -42.691135)
 
 [node name="SP2" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="1" unique_id=2118685022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4.433363, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.182354, 10.036987, 41.49997)
 
 [node name="SP3" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="2" unique_id=54624228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4.96397, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.785297, 10.660501, -42.586693)
+
+[node name="SP4" type="Node3D" parent="EnemySpawner/SpawnPoints" parent_id_path=PackedInt32Array(74397329, 923080153) index="3" unique_id=1165050212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4498, 11.09355, 42.04828)
 
 [node name="Totens" type="Node3D" parent="." unique_id=675896502]
 
 [node name="1" parent="Totens" unique_id=853299532 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.734182, 0, -16.12147)
+transform = Transform3D(0.58729094, 0, -0.8093759, 0, 1, 0, 0.8093759, 0, 0.58729094, 38.837814, 0, -22.840897)
 
 [node name="2" parent="Totens" unique_id=1397333249 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.05354, 0, 6.1983232)
+transform = Transform3D(-0.4344139, 0, -0.9007133, 0, 1, 0, 0.9007133, 0, -0.4344139, 34.71153, 0, 17.511509)
 
 [node name="3" parent="Totens" unique_id=2127080778 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.16778, 0, -14.391079)
+transform = Transform3D(0.9930109, 0, 0.11802269, 0, 1, 0, -0.11802269, 0, 0.9930109, -7.152912, 0, -26.674955)
 
 [node name="4" parent="Totens" unique_id=1829076604 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.227894)
+transform = Transform3D(0.3315355, 0, -0.94344276, 0, 1, 0, 0.94344276, 0, 0.3315355, 19.617496, 0, -3.4051018)
 
 [node name="5" parent="Totens" unique_id=1850741329 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.67818, 0, 0)
+transform = Transform3D(0.68365616, 0, 0.72980446, 0, 1, 0, -0.72980446, 0, 0.68365616, -39.455997, 0, -13.854109)
 
 [node name="6" parent="Totens" unique_id=669684189 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17718, 0, 16.28925)
+transform = Transform3D(-0.99446154, 0, -0.10510135, 0, 1, 0, 0.10510135, 0, -0.99446154, -6.5450606, 0, 26.172642)
 
 [node name="7" parent="Totens" unique_id=1219379932 instance=ExtResource("2_2dftf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.849023, 0, 15.213356)
+transform = Transform3D(-0.41648704, 0, 0.9091417, 0, 1, 0, -0.9091417, 0, -0.41648704, -37.799305, 0, 19.729725)
 
 [editable path="EnemySpawner"]

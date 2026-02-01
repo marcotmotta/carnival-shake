@@ -19,6 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://clv6w8cd6x4ri" path="res://player/bars/ui1_0005_onca.png" id="17_2m0d2"]
 [ext_resource type="Texture2D" uid="uid://bl3cq6uw7w46j" path="res://player/bars/ui1_0006_peixe.png" id="18_8nth8"]
 [ext_resource type="Script" uid="uid://chydsr5yncycg" path="res://player/pause_menu.gd" id="19_ofhxi"]
+[ext_resource type="AudioStream" uid="uid://bl36n7cx58ht5" path="res://audio/Base do samba (loop).wav" id="20_yu5hk"]
+[ext_resource type="AudioStream" uid="uid://bfkmsmxjfidh6" path="res://audio/Loop beija flor.wav" id="21_q6miu"]
+[ext_resource type="AudioStream" uid="uid://b72dqc251ax8d" path="res://audio/Loop tartaruga.wav" id="22_mlfor"]
+[ext_resource type="AudioStream" uid="uid://cx6aahyvb67c0" path="res://audio/Loop garça.wav" id="23_y617q"]
+[ext_resource type="AudioStream" uid="uid://cr507o1j5my3v" path="res://audio/Loop arara.wav" id="24_8eyfg"]
+[ext_resource type="AudioStream" uid="uid://baahukr2gwvqf" path="res://audio/Loop macaco.wav" id="25_76mgg"]
+[ext_resource type="AudioStream" uid="uid://b7grk5x8ngfkb" path="res://audio/Loop onça.wav" id="26_ddnt4"]
+[ext_resource type="AudioStream" uid="uid://xwl0e14jbh2n" path="res://audio/Loop peixe.wav" id="27_a0lmo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehurd"]
 size = Vector3(0.5703125, 1.2451172, 0.47460938)
@@ -259,6 +267,40 @@ text = "EXIT"
 
 [node name="ShootDelay" type="Timer" parent="." unique_id=2115213560]
 wait_time = 0.3
+
+[node name="Audios" type="Node" parent="." unique_id=1112959935]
+
+[node name="Base" type="AudioStreamPlayer" parent="Audios" unique_id=2107239090]
+stream = ExtResource("20_yu5hk")
+volume_db = -30.0
+
+[node name="0" type="AudioStreamPlayer" parent="Audios" unique_id=142544781]
+stream = ExtResource("21_q6miu")
+volume_db = -22.0
+
+[node name="1" type="AudioStreamPlayer" parent="Audios" unique_id=2144126707]
+stream = ExtResource("22_mlfor")
+volume_db = -27.0
+
+[node name="2" type="AudioStreamPlayer" parent="Audios" unique_id=1420299130]
+stream = ExtResource("23_y617q")
+volume_db = -18.0
+
+[node name="3" type="AudioStreamPlayer" parent="Audios" unique_id=1235743011]
+stream = ExtResource("24_8eyfg")
+volume_db = -18.0
+
+[node name="4" type="AudioStreamPlayer" parent="Audios" unique_id=1662400920]
+stream = ExtResource("25_76mgg")
+volume_db = -18.0
+
+[node name="5" type="AudioStreamPlayer" parent="Audios" unique_id=1355742576]
+stream = ExtResource("26_ddnt4")
+volume_db = -25.0
+
+[node name="6" type="AudioStreamPlayer" parent="Audios" unique_id=2083503648]
+stream = ExtResource("27_a0lmo")
+volume_db = -25.0
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Continue" to="CanvasLayer/PauseMenu" method="_on_continue_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Exit" to="CanvasLayer/PauseMenu" method="_on_exit_pressed"]

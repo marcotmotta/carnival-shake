@@ -15,6 +15,8 @@ extends CharacterBody3D
 
 var curr_mask_type = null
 
+var volumes = [-22, -27, -18, -18, -18, -24, -18]
+
 # Projectiles.
 @onready var projectile_beijaflor_scene = preload("res://projectiles/ProjectileBeijaFlor.tscn")
 @onready var projectile_tartaruga_scene = preload("res://projectiles/ProjectileTartaruga.tscn")
@@ -26,6 +28,12 @@ var curr_mask_type = null
 
 var can_shoot = true
 var shoot_delay = 0.4
+
+func _ready() -> void:
+	for audio in $Audios.get_children():
+		audio.play()
+		audio.volume_db = -80 # 0 volume
+	$Audios/Base.volume_db = -30
 
 func _process(delta):
 	# Align to camera direction.
@@ -83,6 +91,9 @@ func remove_current_mask():
 	for bar in $CanvasLayer/Bars.get_children():
 		bar.visible = false
 
+	for audio in $Audios.get_children():
+		audio.volume_db = -80 # 0 volume
+
 	curr_mask_type = null
 
 func add_mask(type):
@@ -105,6 +116,8 @@ func add_mask(type):
 			visual.get_node("MaskHandler/Masks/Mask7").visible = true
 
 	$CanvasLayer/Bars.get_node(str(type)).visible = true
+
+	$Audios.get_node(str(type)).volume_db = volumes[type]
 
 	curr_mask_type = type
 
