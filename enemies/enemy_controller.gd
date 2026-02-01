@@ -59,7 +59,7 @@ func _physics_process(delta):
 	if global_position.distance_to(target_position) > 0.01:
 		look_at(target_position)
 
-func take_knockback(from_position: Vector3, force: float = knockback_force):
+func take_knockback(from_position, force = knockback_force):
 	var direction = (global_position - from_position).normalized()
 	direction.y = 0
 	direction = direction.normalized()
@@ -67,7 +67,7 @@ func take_knockback(from_position: Vector3, force: float = knockback_force):
 	knockback_velocity = direction * force
 
 func take_damage(amount, hit_type = null):
-	if hit_type != null: # is not boss
+	if hit_type != null: # Is not boss.
 		health = max(0, health - amount)
 
 		if health <= 0:
@@ -78,8 +78,8 @@ func take_damage(amount, hit_type = null):
 
 			queue_free()
 
-	else: # is boss
-		# blue hit
+	else: # Is boss.
+		# Blue hit.
 		if [game_state.types_of_masks.tartaruga, game_state.types_of_masks.peixe].has(hit_type):
 			blue_health = max(0, blue_health - 1)
 
@@ -87,7 +87,8 @@ func take_damage(amount, hit_type = null):
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).albedo_color = '#000000'
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).blend_mode = 1
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).emission_energy_multiplier = 0
-		# red hit
+
+		# Red hit.
 		elif [game_state.types_of_masks.arara, game_state.types_of_masks.garca].has(hit_type):
 			red_health = max(0, red_health - 1)
 
@@ -95,7 +96,8 @@ func take_damage(amount, hit_type = null):
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).albedo_color = '#000000'
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).blend_mode = 1
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).emission_energy_multiplier = 0
-		# yellow hit
+
+		# Yellow hit.
 		elif [game_state.types_of_masks.macaco, game_state.types_of_masks.onca].has(hit_type):
 			yellow_health = max(0, yellow_health - 1)
 
@@ -107,7 +109,7 @@ func take_damage(amount, hit_type = null):
 		if (blue_health + red_health + yellow_health) == 0:
 			queue_free()
 
-func _on_hit_area_body_entered(body: Node3D) -> void:
+func _on_hit_area_body_entered(body):
 	if body.is_in_group('player'):
 		body.take_damage(damage)
 
