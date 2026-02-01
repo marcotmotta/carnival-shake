@@ -67,14 +67,14 @@ func take_knockback(from_position, force = knockback_force):
 	knockback_velocity = direction * force
 
 func take_damage(amount, hit_type = null):
-	if hit_type != null: # Is not boss.
+	if hit_type == null: # Is not boss.
 		health = max(0, health - amount)
 
 		if health <= 0:
 			if (randi() % 100) <= 5: # 5% chance to spawn a heal on death
 				var heal_instance = heal_scene.instantiate()
-				heal_instance.global_position = global_position
 				get_parent().add_child(heal_instance)
+				heal_instance.global_position = global_position
 
 			queue_free()
 
@@ -95,7 +95,7 @@ func take_damage(amount, hit_type = null):
 			if red_health <= 0:
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).albedo_color = '#000000'
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).blend_mode = 1
-				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).emission_energy_multiplier = 0
+				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(10).emission_energy_multiplier = 0
 
 		# Yellow hit.
 		elif [game_state.types_of_masks.macaco, game_state.types_of_masks.onca].has(hit_type):
@@ -104,7 +104,7 @@ func take_damage(amount, hit_type = null):
 			if yellow_health <= 0:
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).albedo_color = '#000000'
 				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).blend_mode = 1
-				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(11).emission_energy_multiplier = 0
+				$"Model/boss/Carla Perez 1".get_node('GARCA_001/Skeleton3D/Cube_002').mesh.surface_get_material(12).emission_energy_multiplier = 0
 
 		if (blue_health + red_health + yellow_health) == 0:
 			queue_free()
