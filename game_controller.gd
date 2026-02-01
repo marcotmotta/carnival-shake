@@ -7,13 +7,14 @@ extends Node3D
 @onready var countdown_label: Label = $CanvasLayer/CountdownLabel
 @onready var enemy_spawner = $EnemySpawner
 
-var max_wave = 4 # this will be the boss wave
+var max_wave = 4 # This will be the boss wave.
 var current_wave = 1
 
 func _ready():
-	# Set initial totem masks
+	# Set initial totem masks.
 	var totens = $Totens.get_children()
 	totens.shuffle()
+
 	for i in range(totens.size()):
 		totens[i].select_mask(i)
 

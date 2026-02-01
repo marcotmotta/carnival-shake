@@ -141,11 +141,12 @@ func throw_projectile():
 		game_state.types_of_masks.peixe:
 			projectile_instance = projectile_peixe_scene.instantiate()
 
-	projectile_instance.global_position = global_position
-	projectile_instance.direction = (get_camera_aim_point() - global_position).normalized()
 	projectile_instance.type = curr_mask_type
 
 	get_parent().add_child(projectile_instance)
+
+	projectile_instance.global_position = global_position
+	projectile_instance.direction = (get_camera_aim_point() - global_position).normalized()
 
 	can_shoot = false
 	$ShootDelay.start(shoot_delay)

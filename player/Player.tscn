@@ -55,7 +55,7 @@ visible = false
 [node name="Mask2" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=101488718]
 visible = false
 
-[node name="tortuga" parent="Visual/MaskHandler/Masks/Mask2" unique_id=1675841993 instance=ExtResource("4_x8kxw")]
+[node name="Tortuga" parent="Visual/MaskHandler/Masks/Mask2" unique_id=1675841993 instance=ExtResource("4_x8kxw")]
 
 [node name="Mask3" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=1614901188]
 visible = false
@@ -65,22 +65,22 @@ visible = false
 [node name="Mask4" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=123843347]
 visible = false
 
-[node name="arara" parent="Visual/MaskHandler/Masks/Mask4" unique_id=114487731 instance=ExtResource("6_gskgj")]
+[node name="Arara" parent="Visual/MaskHandler/Masks/Mask4" unique_id=114487731 instance=ExtResource("6_gskgj")]
 
 [node name="Mask5" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=1534606794]
 visible = false
 
-[node name="mico" parent="Visual/MaskHandler/Masks/Mask5" unique_id=1571772129 instance=ExtResource("7_06mnu")]
+[node name="Mico" parent="Visual/MaskHandler/Masks/Mask5" unique_id=1571772129 instance=ExtResource("7_06mnu")]
 
 [node name="Mask6" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=752745412]
 visible = false
 
-[node name="onça" parent="Visual/MaskHandler/Masks/Mask6" unique_id=1064580471 instance=ExtResource("8_mhpjh")]
+[node name="Onça" parent="Visual/MaskHandler/Masks/Mask6" unique_id=1064580471 instance=ExtResource("8_mhpjh")]
 
 [node name="Mask7" type="Node3D" parent="Visual/MaskHandler/Masks" unique_id=170156864]
 visible = false
 
-[node name="peixe" parent="Visual/MaskHandler/Masks/Mask7" unique_id=703406893 instance=ExtResource("9_ndjxb")]
+[node name="Peixe" parent="Visual/MaskHandler/Masks/Mask7" unique_id=703406893 instance=ExtResource("9_ndjxb")]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=101171570]
 

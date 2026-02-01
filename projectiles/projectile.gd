@@ -15,7 +15,7 @@ var rotation_axis: Vector3
 @export var rotation_speed := 5.0
 
 func _ready() -> void:
-	 # Pick random axis once
+	# Pick random axis once
 	rotation_axis = Vector3(randf() - 0.5, randf() - 0.5, randf() - 0.5).normalized()
 
 func _process(delta: float) -> void:
