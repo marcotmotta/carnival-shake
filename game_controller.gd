@@ -7,7 +7,7 @@ extends Node3D
 @onready var countdown_label: Label = $CanvasLayer/CountdownLabel
 @onready var enemy_spawner = $EnemySpawner
 
-var max_wave = 4 # This will be the boss wave.
+var max_wave = 5 # This will be the boss wave.
 var current_wave = 1
 
 func _ready():

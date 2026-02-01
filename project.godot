@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="ggj26"
+config/name="Carnival Shake"
+config/description="Carnival Shake"
+config/version="1.0"
 run/main_scene="uid://b17mg0nc1elu1"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cg2315bmaqh0k"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

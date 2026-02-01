@@ -88,7 +88,7 @@ func take_damage(amount, hit_type = null):
 
 				var audio = audio_player.instantiate()
 				audio.stream = audios.pick_random()
-				audio.vilume_db = -18
+				audio.volume_db = -18
 				get_parent().add_child(audio)
 
 			queue_free()
@@ -105,7 +105,7 @@ func take_damage(amount, hit_type = null):
 
 				var audio = audio_player.instantiate()
 				audio.stream = boss_hurt
-				audio.vilume_db = -15
+				audio.volume_db = -15
 				get_parent().add_child(audio)
 
 		# Red hit.
@@ -119,7 +119,7 @@ func take_damage(amount, hit_type = null):
 
 				var audio = audio_player.instantiate()
 				audio.stream = boss_hurt
-				audio.vilume_db = -15
+				audio.volume_db = -15
 				get_parent().add_child(audio)
 
 		# Yellow hit.
@@ -133,7 +133,7 @@ func take_damage(amount, hit_type = null):
 
 				var audio = audio_player.instantiate()
 				audio.stream = boss_hurt
-				audio.vilume_db = -15
+				audio.volume_db = -15
 				get_parent().add_child(audio)
 
 		if (blue_health + red_health + yellow_health) == 0:

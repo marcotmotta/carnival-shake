@@ -102,7 +102,7 @@ navigation_mesh = SubResource("NavigationMesh_2dftf")
 shape = SubResource("BoxShape3D_k5hrn")
 
 [node name="Chao" parent="Ground/NavigationRegion3D/StaticBody3D1" unique_id=1895501329 instance=ExtResource("2_wygdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40863556, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.40863556, 0)
 
 [node name="arquibancada" parent="Ground" unique_id=458030895 instance=ExtResource("2_eu7l1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.020696, 0, -52.581604)
