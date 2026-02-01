@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://clv6w8cd6x4ri" path="res://player/bars/ui1_0005_onca.png" id="17_2m0d2"]
 [ext_resource type="Texture2D" uid="uid://bl3cq6uw7w46j" path="res://player/bars/ui1_0006_peixe.png" id="18_8nth8"]
 [ext_resource type="Script" uid="uid://chydsr5yncycg" path="res://player/pause_menu.gd" id="19_ofhxi"]
+[ext_resource type="Script" uid="uid://bfot4lmh6awnx" path="res://player/vgo_menu.gd" id="20_8eyfg"]
 [ext_resource type="AudioStream" uid="uid://bl36n7cx58ht5" path="res://audio/Base do samba (loop).wav" id="20_yu5hk"]
 [ext_resource type="AudioStream" uid="uid://bfkmsmxjfidh6" path="res://audio/Loop beija flor.wav" id="21_q6miu"]
 [ext_resource type="AudioStream" uid="uid://b72dqc251ax8d" path="res://audio/Loop tartaruga.wav" id="22_mlfor"]
@@ -275,6 +276,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("20_8eyfg")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/VGOMenu" unique_id=1712479362]
 layout_mode = 1
