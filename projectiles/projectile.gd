@@ -57,7 +57,7 @@ func _on_body_entered(body):
 			else: # Is boss.
 				hitted_enemies.append(body)
 				body.take_damage(damage, type)
-				body.take_knockback(global_position, 10.0)
+				body.take_knockback(global_position, 15.0)
 
 				var hit_particle_instance = hit_particle_scene.instantiate()
 				hit_particle_instance.type = type
